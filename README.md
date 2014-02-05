@@ -7,3 +7,4 @@ Oranges to Oranges!
 - Kirk Henf
 - Ed Fonseca
 - Kevin Liu
+- Elman "Steve" Laguna
