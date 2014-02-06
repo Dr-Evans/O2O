@@ -8,3 +8,4 @@ Oranges to Oranges!
 - Ed Fonseca
 - Kevin Liu
 - Elman "Steve" Laguna
+- Jasmine Perez
