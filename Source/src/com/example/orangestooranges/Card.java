@@ -14,4 +14,16 @@ public class Card {
 		this.cdes = _cdes;
 	}
 	
+	public int getID() {
+		return this.card_ID;
+	}
+	
+	public String getCtopic() {
+		return this.ctopic;
+	}
+	
+	public String getCdes() {
+		return this.ctopic;
+	}
+	
 }

@@ -1,6 +1,8 @@
 package com.example.orangestooranges;
- 
+
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
  
@@ -34,6 +36,36 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     	//will be added as is necessary
     	//changing version number will force a run of onUpgrade
+    }
+    
+    
+    //to be transformed into addCard(char cardColor, String cardName, String cardDesc)
+    public void addCard() {
+        SQLiteDatabase db = this.getWritableDatabase();
+     
+        ContentValues values = new ContentValues();
+        values.put(NAME_COLUMN, "TestCard"); //Card name
+        values.put(TEXT_COLUMN, "Sample Text"); //Card text
+     
+        // Inserting Row
+        db.insert(ORANGES_TABLE, null, values);
+        db.close(); // Closing database connection
+    }
+    
+    //returns orange with given ID
+    public CardOrange getOrange(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+ 
+        Cursor cursor = db.query(ORANGES_TABLE, new String[] { ID_COLUMN,
+                NAME_COLUMN, TEXT_COLUMN}, ID_COLUMN + "=?",
+                new String[] { String.valueOf(id) }, null, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
+ 
+        CardOrange newOrange = new CardOrange(Integer.parseInt(cursor.getString(0)),
+                cursor.getString(1), cursor.getString(2));
+        // return card
+        return newOrange;
     }
     
 }
