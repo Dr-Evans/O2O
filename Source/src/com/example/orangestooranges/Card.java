@@ -23,7 +23,7 @@ public class Card {
 	}
 	
 	public String getCdes() {
-		return this.ctopic;
+		return this.cdes;
 	}
 	
 }

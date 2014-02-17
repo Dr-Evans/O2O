@@ -12,13 +12,17 @@ public class CardCreationTest extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		DatabaseHandler db = new DatabaseHandler(this);
-	    //Inserting an orange
+	    /*Inserting an orange
 		Log.d("Insert: ", "Inserting..."); 
-	    db.addCard();
+	    db.addCard(); */
 	    Log.d("Reading: ", "Reading card with given ID..."); 
         CardOrange card = db.getOrange(1);
         String log = "Id: "+card.getID()+", Name: " + card.getCtopic() + ", Description: " + card.getCdes();
-                // Writing Contacts to log
-        Log.d("Name: ", log);
+        //Writing Contacts to log
+        Log.d("Card: ", log);
+        card = db.getOrange(2);
+        log = "Id: "+card.getID()+", Name: " + card.getCtopic() + ", Description: " + card.getCdes();
+        //Writing Contacts to log
+        Log.d("Card: ", log);
 	}
 }
