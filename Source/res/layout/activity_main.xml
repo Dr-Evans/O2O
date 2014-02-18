@@ -45,13 +45,12 @@
         >
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/playgame"
             android:layout_width="130dp"
             android:layout_height="match_parent"
-            android:gravity="center" 
-            android:textStyle="bold"
-            android:text="@string/button1" 
-            />
+            android:gravity="center"
+            android:text="@string/button1"
+            android:textStyle="bold" />
 
 		<TextView
         	android:id="@+id/spacer1"

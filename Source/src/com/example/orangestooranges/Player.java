@@ -14,9 +14,15 @@ public class Player {
 	private boolean isJudge; //true if judge for the round
 	private int randCount; //number of times consecutively randomed
 	private boolean didRand;
+	private CardOrange orangePlayed;
 	
 	//Constructors
-	Player() {} //default
+	Player() {
+		cardsWon = new ArrayList<CardBlue>();
+		hand = new ArrayList<CardOrange>();
+		points = 0;
+	}
+	
 	Player(int player_ID, String username, int position, boolean isJudge) {
 		this.player_ID = player_ID;
 		cardsWon = new ArrayList<CardBlue>();
@@ -38,11 +44,30 @@ public class Player {
 		points++;
 	}
 	
+	public void addOrange(CardOrange orange) {
+		hand.add(orange);
+	}
+	
+	//sets the cardPlayed to the card in hand at given index
+	public void setOrangePlayed(int card_index) {
+		orangePlayed = hand.get(card_index);
+		this.removeOrange(card_index);
+	}
+	
+	//returns last orange played if not judge, else null
+	public CardOrange lastPlayed() {
+		if(isJudge == false) {
+			return orangePlayed;
+		} else 
+			return null;
+	}
+	
 	//called if a card isn't selected in time; should select from 0-handSize-1; randomly selects card
 	public CardOrange selectRand() {
 		didRand = true;
 		Random rand = new Random();
 		int randomNum = rand.nextInt(hand.size());
+		orangePlayed = hand.get(randomNum);
 		return hand.get(randomNum);
 	}		
 	
@@ -74,6 +99,10 @@ public class Player {
 		return hand;
 	}
 	
+	public CardOrange getOrange(int index) {
+		return hand.get(index);
+	}
+	
 	public ArrayList<CardBlue> getCardsWon() {
 		return cardsWon;
 	}
@@ -84,6 +113,10 @@ public class Player {
 	
 	public int getRandCount() {
 		return randCount;
+	}
+	
+	public void setRandCount(int randCount) {
+		this.randCount = randCount;
 	}
 	
 }

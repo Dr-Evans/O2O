@@ -5,6 +5,7 @@ public class Card {
 	public int card_ID; //unique ID of card
 	public String ctopic; //card topic and main subject
 	public String cdes; //extended card description
+	//public String index;
 	
 	Card() {}
 	

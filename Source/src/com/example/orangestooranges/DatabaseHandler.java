@@ -34,7 +34,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     
     /*insert cards into database; this is the quickest means for insertion but I'm not sure if 
      * we want to declare all the cards like this or read them in from a file? just adding them here
-     * for now and we can always move them and use a loop, but this will only every run once on install 
+     * for now and we can always move them and use a loop, but this will only every run once on install
+     * We will also need to come up with original cards; these are currently ripped from Apples to Apples 
      */
     	
     	 String sql = "INSERT INTO "+ ORANGES_TABLE +" VALUES (?,?,?);";
