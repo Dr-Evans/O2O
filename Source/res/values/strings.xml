@@ -15,5 +15,9 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="title_activity_login">LoginActivity</string>
-
+    <string name="signin">Sign In</string>
+    <string name="create">Create</string>
+    <string name="email">Email</string>
+	<string name="email_confirm">Confirm Email</string>
+    
 </resources>
