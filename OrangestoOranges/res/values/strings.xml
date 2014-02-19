@@ -16,7 +16,11 @@
     <string name="login">Login</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="lockCard">Lock In</string>
+
     <color name="lightBlue">#997373D9</color>
-    
+
+    <string name="title_activity_end_screen">EndScreen</string>
+    <string name="scoreBoard">ScoreBoard</string>
+    <string name="playAgain">Play Again</string>
 
 </resources>
