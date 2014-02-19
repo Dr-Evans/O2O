@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
-
+	
+    <TextView
+        android:id="@+id/cardPreview"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:text="" >    
+    </TextView>
+    
     <HorizontalScrollView
+        android:layout_alignParentBottom="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp" >
@@ -18,45 +26,52 @@
                 android:id="@+id/card1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/button1" />
+                android:text=""
+                android:onClick="cardClicked" />
 
             <Button
                 android:id="@+id/card2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/button2" />
+                android:text=""
+                android:onClick="cardClicked" />
 
             <Button
                 android:id="@+id/card3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/button3" />
+                android:text=""
+                android:onClick="cardClicked" />
 
             <Button
                 android:id="@+id/card4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/button4" />
+                android:text=""
+                android:onClick="cardClicked" />
 
             <Button
                 android:id="@+id/card5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/button5" />
+                android:text=""
+                android:onClick="cardClicked" />
             
             <Button
                 android:id="@+id/card6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/button5" />
+                android:text=""
+                android:onClick="cardClicked" />
             
             <Button
                 android:id="@+id/card7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/button5" />
+                android:text=""
+                android:onClick="cardClicked" />
 
         </LinearLayout>
     </HorizontalScrollView>
 
-</LinearLayout>
+</RelativeLayout>

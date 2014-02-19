@@ -24,18 +24,19 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f080015;
+        public static final int action_settings=0x7f080016;
         public static final int button0=0x7f080005;
         public static final int button2=0x7f080009;
         public static final int button3=0x7f08000b;
         public static final int button4=0x7f08000d;
-        public static final int card1=0x7f08000e;
-        public static final int card2=0x7f08000f;
-        public static final int card3=0x7f080010;
-        public static final int card4=0x7f080011;
-        public static final int card5=0x7f080012;
-        public static final int card6=0x7f080013;
-        public static final int card7=0x7f080014;
+        public static final int card1=0x7f08000f;
+        public static final int card2=0x7f080010;
+        public static final int card3=0x7f080011;
+        public static final int card4=0x7f080012;
+        public static final int card5=0x7f080013;
+        public static final int card6=0x7f080014;
+        public static final int card7=0x7f080015;
+        public static final int cardPreview=0x7f08000e;
         public static final int loginbutton=0x7f080002;
         public static final int password=0x7f080001;
         public static final int playgame=0x7f080007;
