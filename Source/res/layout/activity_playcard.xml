@@ -2,21 +2,51 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    >
+    
+    <TextView
+        android:id="@+id/roundBlue"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="This is a test blue for now"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:background="@color/lightBlue"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        >
+        
+    </TextView>
 	
     <TextView
         android:id="@+id/cardPreview"
     	android:layout_width="wrap_content"
     	android:layout_height="wrap_content"
-    	android:text="" >    
+    	android:text="" 
+    	android:gravity="center"
+    	android:layout_centerInParent="true"
+    	>
     </TextView>
     
+    <Button
+        android:id="@+id/lockCard"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lockCard"
+        android:visibility="gone"
+        android:layout_above="@+id/horizontalScroll"
+        android:onClick="lockCard" >        
+    </Button>
+    
     <HorizontalScrollView
+        android:id="@id/horizontalScroll"
         android:layout_alignParentBottom="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp" >
-
+     >
+        
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

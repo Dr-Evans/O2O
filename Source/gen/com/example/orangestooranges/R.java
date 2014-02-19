@@ -10,6 +10,9 @@ package com.example.orangestooranges;
 public final class R {
     public static final class attr {
     }
+    public static final class color {
+        public static final int lightBlue=0x7f060000;
+    }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
 
@@ -24,29 +27,32 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f080016;
-        public static final int button0=0x7f080005;
-        public static final int button2=0x7f080009;
-        public static final int button3=0x7f08000b;
-        public static final int button4=0x7f08000d;
-        public static final int card1=0x7f08000f;
-        public static final int card2=0x7f080010;
-        public static final int card3=0x7f080011;
-        public static final int card4=0x7f080012;
-        public static final int card5=0x7f080013;
-        public static final int card6=0x7f080014;
-        public static final int card7=0x7f080015;
-        public static final int cardPreview=0x7f08000e;
-        public static final int loginbutton=0x7f080002;
-        public static final int password=0x7f080001;
-        public static final int playgame=0x7f080007;
-        public static final int spacer1=0x7f080008;
-        public static final int spacer2=0x7f08000a;
-        public static final int spacer3=0x7f08000c;
-        public static final int spacer4=0x7f080004;
-        public static final int spacer5=0x7f080006;
-        public static final int textView1=0x7f080003;
-        public static final int username=0x7f080000;
+        public static final int action_settings=0x7f090019;
+        public static final int button0=0x7f090005;
+        public static final int button2=0x7f090009;
+        public static final int button3=0x7f09000b;
+        public static final int button4=0x7f09000d;
+        public static final int card1=0x7f090012;
+        public static final int card2=0x7f090013;
+        public static final int card3=0x7f090014;
+        public static final int card4=0x7f090015;
+        public static final int card5=0x7f090016;
+        public static final int card6=0x7f090017;
+        public static final int card7=0x7f090018;
+        public static final int cardPreview=0x7f09000f;
+        public static final int horizontalScroll=0x7f090011;
+        public static final int lockCard=0x7f090010;
+        public static final int loginbutton=0x7f090002;
+        public static final int password=0x7f090001;
+        public static final int playgame=0x7f090007;
+        public static final int roundBlue=0x7f09000e;
+        public static final int spacer1=0x7f090008;
+        public static final int spacer2=0x7f09000a;
+        public static final int spacer3=0x7f09000c;
+        public static final int spacer4=0x7f090004;
+        public static final int spacer5=0x7f090006;
+        public static final int textView1=0x7f090003;
+        public static final int username=0x7f090000;
     }
     public static final class layout {
         public static final int activity_login=0x7f030000;
@@ -54,9 +60,9 @@ public final class R {
         public static final int activity_playcard=0x7f030002;
     }
     public static final class menu {
-        public static final int login=0x7f070000;
-        public static final int main=0x7f070001;
-        public static final int playcard=0x7f070002;
+        public static final int login=0x7f080000;
+        public static final int main=0x7f080001;
+        public static final int playcard=0x7f080002;
     }
     public static final class string {
         public static final int action_settings=0x7f050001;
@@ -69,6 +75,7 @@ public final class R {
         public static final int button5=0x7f050008;
         public static final int hello_world=0x7f050002;
         public static final int largetext=0x7f050009;
+        public static final int lockCard=0x7f05000e;
         public static final int login=0x7f05000c;
         public static final int password=0x7f05000b;
         public static final int title_activity_login=0x7f05000d;
@@ -98,11 +105,11 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
-        public static final int LoginFormContainer=0x7f060002;
+        public static final int AppTheme=0x7f070001;
+        public static final int LoginFormContainer=0x7f070002;
     }
 }
