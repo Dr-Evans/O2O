@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical" 
+    >
+
+    <TextView
+        android:id="@+id/mainTextView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/largetext"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+	<TextView
+	    android:id="@+id/spacer4"
+	    android:layout_width="match_parent"
+	    android:layout_height="84dp" />
+
+	<Button
+	    android:id="@+id/mainStatsButton"
+	    android:layout_width="130dp"
+	    android:layout_height="wrap_content"
+	    android:gravity="center"
+	    android:text="@string/button0"
+	    android:textStyle="bold" />
+    
+	<TextView
+	    android:id="@+id/spacer5"
+	    android:layout_width="match_parent"
+	    android:layout_height="60dp" 
+	    />
+	
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:orientation="horizontal" 
+        >
+
+        <Button
+            android:id="@+id/mainPlayButton"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/button1"
+            android:textStyle="bold" />
+
+		<TextView
+        	android:id="@+id/spacer1"
+        	android:layout_width="20dp"
+        	android:layout_height="match_parent" 
+        	/>
+
+        <Button
+            android:id="@+id/mainCreateButton"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/button2"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/spacer2"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"  
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:orientation="horizontal" 
+        >
+
+        <Button
+            android:id="@+id/mainFriendsButton"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/button3"
+            android:textStyle="bold" />
+
+        <TextView
+        	android:id="@+id/spacer3"
+        	android:layout_width="20dp"
+        	android:layout_height="match_parent" 
+        	/>
+
+        <Button
+            android:id="@+id/mainSettingsButton"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/button4"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</LinearLayout>
