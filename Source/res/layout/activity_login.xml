@@ -37,6 +37,7 @@
 	    android:layout_height="wrap_content"
 	    android:gravity="center"
 	    android:text="@string/login"/>
+<<<<<<< HEAD
 	
 	<TextView
         android:id="@+id/login_create"
@@ -86,6 +87,9 @@
 	    android:gravity="center"
 	    android:text="@string/create"/>
 	
+=======
+	    
+>>>>>>> 0643a787e18f05e34278e8a17f193ac169ca14f7
 </LinearLayout>
     
     

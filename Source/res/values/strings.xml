@@ -15,9 +15,15 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="title_activity_login">LoginActivity</string>
+<<<<<<< HEAD
     <string name="signin">Sign In</string>
     <string name="create">Create</string>
     <string name="email">Email</string>
 	<string name="email_confirm">Confirm Email</string>
     
+=======
+    <string name="lockCard">Lock In</string>
+    <color name="lightBlue">#997373D9</color>
+
+>>>>>>> 0643a787e18f05e34278e8a17f193ac169ca14f7
 </resources>
