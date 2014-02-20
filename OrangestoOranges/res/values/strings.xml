@@ -16,12 +16,14 @@
     <string name="login">Login</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="lockCard">Lock In</string>
-
     <color name="lightBlue">#997373D9</color>
-
     <string name="title_activity_end_screen">EndScreen</string>
     <string name="scoreBoard">ScoreBoard</string>
     <string name="playAgain">Play Again</string>
     <string name="mainMenu">Main Menu</string>
+    <string name="signin_text">Sign In</string>
+    <string name="create_text">Create</string>
+    <string name="email">Email</string>
+    <string name="confirm_email">Confirm Email</string>
 
 </resources>

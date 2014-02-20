@@ -13,7 +13,8 @@ public class LoginActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-		Button loginButton = (Button)findViewById(R.id.loginbutton);
+		
+		Button loginButton = (Button)findViewById(R.id.login_button);
 		loginButton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -21,6 +22,8 @@ public class LoginActivity extends Activity {
 			    startActivity(new Intent(LoginActivity.this, MainActivity.class));
 			}
 		});
+		
+		
 	}
 
 	@Override
