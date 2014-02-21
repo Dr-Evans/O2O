@@ -9,7 +9,7 @@
         android:id="@+id/roundBlue"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="This is a test blue for now"
+        android:text=""
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:gravity="center"
@@ -27,6 +27,7 @@
     	android:text="" 
     	android:gravity="center"
     	android:layout_centerInParent="true"
+    	android:textSize="20sp"
     	>
     </TextView>
     
