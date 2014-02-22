@@ -5,7 +5,7 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/endScreenTextView1"
         android:layout_width="306dp"
         android:layout_height="254dp"
         android:layout_gravity="top|center_horizontal"
@@ -14,8 +14,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
-        android:id="@+id/button1"
-        android:layout_width="101dp"
+        android:id="@+id/playAgainButton"
+        android:layout_width="106dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@color/lightBlue"
@@ -23,7 +23,7 @@
         android:text="@string/playAgain" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/mainMenuButton"
         android:layout_width="106dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"

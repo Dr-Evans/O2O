@@ -29,8 +29,6 @@ public final class R {
     }
     public static final class id {
         public static final int action_settings=0x7f090028;
-        public static final int button1=0x7f090001;
-        public static final int button2=0x7f090002;
         public static final int card1=0x7f09001d;
         public static final int card2=0x7f09001e;
         public static final int card3=0x7f09001f;
@@ -45,16 +43,19 @@ public final class R {
         public static final int create_password=0x7f09000a;
         public static final int create_text=0x7f090008;
         public static final int create_username=0x7f090009;
+        public static final int endScreenTextView1=0x7f090000;
         public static final int horizontalScroll=0x7f09001c;
         public static final int lockCard=0x7f09001b;
         public static final int login_button=0x7f090007;
         public static final int login_scroll_view=0x7f090003;
         public static final int mainCreateButton=0x7f090014;
         public static final int mainFriendsButton=0x7f090016;
+        public static final int mainMenuButton=0x7f090002;
         public static final int mainPlayButton=0x7f090012;
         public static final int mainSettingsButton=0x7f090018;
         public static final int mainStatsButton=0x7f090010;
         public static final int mainTextView1=0x7f09000e;
+        public static final int playAgainButton=0x7f090001;
         public static final int playGameButton1=0x7f090027;
         public static final int playGameSpinner1=0x7f090025;
         public static final int playGameText1=0x7f090024;
@@ -68,7 +69,6 @@ public final class R {
         public static final int spacer3=0x7f090017;
         public static final int spacer4=0x7f09000f;
         public static final int spacer5=0x7f090011;
-        public static final int textView1=0x7f090000;
     }
     public static final class layout {
         public static final int activity_end_screen=0x7f030000;
