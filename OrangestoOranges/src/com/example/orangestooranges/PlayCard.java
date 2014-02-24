@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class PlayCard extends Activity {
 	DatabaseHandler db = new DatabaseHandler(this);
@@ -15,6 +17,8 @@ public class PlayCard extends Activity {
 	int cardPreviewing = 0;
 	int playerIndex = 0; //this will be set by server for user
 	Player newPlayer = new Player(playerIndex, "SampleUser", 0, false);
+	public int seconds = 65;
+	public int minutes = 10;//Minutes not used
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,34 @@ public class PlayCard extends Activity {
 			cardButton.setText(newMatch.getPlayer(playerIndex).getOrange(i).getCtopic());
 			cardButton.setTag((Integer)i); //set the cards index in the view so it can be referenced when clicked
 		}
+		
+		//Timer Here
+		
+		 Timer t = new Timer();
+	     t.scheduleAtFixedRate(new TimerTask(){
+	        	@Override
+	        	public void run(){
+	        		runOnUiThread(new Runnable(){
+	        			@Override
+	        			public void run(){
+	        				TextView tv = (TextView) findViewById(R.id.timer);
+	        				if(seconds > 60){//Provide buffer period
+	        					tv.setText("Starting...");
+	        					seconds = seconds-1;
+	        				}
+	        				else if(seconds > 0){
+	        					tv.setText(String.valueOf(seconds));
+	        					seconds = seconds - 1;
+	        				}
+	        				else if(seconds == 0){//Should add functionality here to lock cards on 0
+	        					tv.setText("TIME IS UP");
+	        				}
+	        			}
+	        		});
+	        	}
+	        }, 0, 1000);
+	    
+
 		
 	}
 
