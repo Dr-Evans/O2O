@@ -62,7 +62,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
            	statement.execute();
            	statement.clearBindings();
            	statement.bindString(2, "Submarine");
-           	statement.bindString(3, "It's a sandwhich shaped like a boat or a boat shaped like a sandwhich.");
+           	statement.bindString(3, "It's a sandwich shaped like a boat or a boat shaped like a sandwhich.");
            	statement.execute();
            	statement.clearBindings();
            	statement.bindString(2, "Airplanes");

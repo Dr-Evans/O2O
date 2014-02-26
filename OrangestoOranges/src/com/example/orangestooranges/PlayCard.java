@@ -17,7 +17,7 @@ public class PlayCard extends Activity {
 	int cardPreviewing = 0;
 	int playerIndex = 0; //this will be set by server for user
 	Player newPlayer = new Player(playerIndex, "SampleUser", 0, false);
-	public int seconds = 65;
+	public int seconds = 25;
 	public int minutes = 10;//Minutes not used
 	
 	@Override
@@ -51,23 +51,32 @@ public class PlayCard extends Activity {
 	        			@Override
 	        			public void run(){
 	        				TextView tv = (TextView) findViewById(R.id.timer);
-	        				if(seconds > 60){//Provide buffer period
+	        				if(seconds > 20){//Provide buffer period
 	        					tv.setText("Starting...");
 	        					seconds = seconds-1;
 	        				}
-	        				else if(seconds > 0){
+	        				else if(seconds > 5){
 	        					tv.setText(String.valueOf(seconds));
 	        					seconds = seconds - 1;
 	        				}
-	        				else if(seconds == 0){//Should add functionality here to lock cards on 0
+	        				else if(seconds <= 5 && seconds > 0){
 	        					tv.setText("TIME IS UP");
+	        					for(int i = 0; i < 7; i++) {
+	        						String buttonID = "card" + (i+1);
+	        						int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
+	        						Button cardButton = (Button)findViewById(resID);
+	        						cardButton.setEnabled(false);
+	        					}
+	        					Button lockButton = (Button)findViewById(R.id.lockCard);
+	        					lockButton.setEnabled(false);
+	        					seconds = seconds - 1;
+	        				} else if(seconds == 0) {
+	        					//should move to display cards 
 	        				}
 	        			}
 	        		});
 	        	}
 	        }, 0, 1000);
-	    
-
 		
 	}
 
