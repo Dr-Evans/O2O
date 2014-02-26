@@ -3,7 +3,10 @@ package com.example.orangestooranges;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Player {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Player implements Parcelable {
 	//variables
 	int player_ID; 
 	private ArrayList<CardBlue> cardsWon; //
@@ -34,6 +37,30 @@ public class Player {
 		randCount = 0;
 		didRand = false;
 	}
+	
+	//player from Parcel
+	Player(Parcel in) {
+		player_ID = in.readInt();
+		in.readList(cardsWon, (ClassLoader) CardBlue.CREATOR);
+		username = in.readString();
+		position = in.readInt();
+		points = in.readInt();
+		in.readList(hand, (ClassLoader) CardOrange.CREATOR);
+		isJudge = in.readByte() != 0;  //isJudge == true if byte != 0
+		randCount = in.readInt();
+		orangePlayed = in.readParcelable(CardOrange.class.getClassLoader());
+	}
+	
+	//method invoked by parcelable
+	public static final Parcelable.Creator<Player> CREATOR = new Parcelable.Creator<Player>() {
+		public Player createFromParcel(Parcel in) {
+			return new Player(in);
+		}
+		
+		public Player[] newArray(int size) {
+			return new Player[size];
+		}
+	};
 	
 	//update points and add blue to array of blues won
 	public void updatePoints(CardBlue blue) {
@@ -118,5 +145,26 @@ public class Player {
 	public void setRandCount(int randCount) {
 		this.randCount = randCount;
 	}
+
+	@Override
+	public int describeContents() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeInt(player_ID);
+		dest.writeList(cardsWon);
+		dest.writeString(username);;
+		dest.writeInt(position);
+		dest.writeInt(points);
+		dest.writeList(hand);
+		dest.writeByte((byte) (isJudge ? 1 : 0)); //true = 1
+		//myBoolean = in.readByte() != 0;     //myBoolean == true if byte != 0
+		dest.writeInt(randCount); 
+		dest.writeParcelable(orangePlayed, flags);
+	}
 	
 }
+
