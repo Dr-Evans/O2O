@@ -2,7 +2,10 @@ package com.example.orangestooranges;
 
 import java.util.ArrayList;
 
-public class Match {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Match implements Parcelable {
 	//attributes
 	ArrayList<Player> players; //array of players
 	private int numPlayers; //number of players
@@ -32,6 +35,30 @@ public class Match {
 			inPlay.add(null);
 		}
 	}
+	
+	//match from parcel
+	Match(Parcel in) {
+		in.readList(players, null); 
+		numPlayers = in.readInt();
+		round = in.readInt();
+		maxScore = in.readInt();
+		isOver = in.readByte() != 0;  //isOver == true if byte != 0
+		in.readList(inPlay, null);
+		match_ID = in.readInt();
+		roundBlue = in.readParcelable(CardBlue.class.getClassLoader());
+		winnerIndex = in.readInt();
+	}
+	
+	//method invoked by parcelable
+	public static final Parcelable.Creator<Match> CREATOR = new Parcelable.Creator<Match>() {
+		public Match createFromParcel(Parcel in) {
+			return new Match(in);
+		}
+		
+		public Match[] newArray(int size) {
+			return new Match[size];
+		}
+	};
 	
 	public int getNumPlayers() {
 		return numPlayers;
@@ -80,6 +107,26 @@ public class Match {
 		} else
 			isJudge++;
 		players.get(isJudge).makeJudge();
+	}
+
+	@Override
+	public int describeContents() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeList(players);
+		dest.writeInt(numPlayers);
+		dest.writeInt(round);
+		dest.writeInt(maxScore);
+		dest.writeByte((byte) (isOver ? 1 : 0)); //true = 1
+		dest.writeInt(isJudge);
+		dest.writeList(inPlay);
+		dest.writeInt(match_ID); 
+		dest.writeParcelable(roundBlue, flags);
+		dest.writeInt(winnerIndex);
 	}
 		
 }
