@@ -1,13 +1,16 @@
 package com.example.orangestooranges;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -17,7 +20,8 @@ public class PlayCard extends Activity {
 	int cardPreviewing = 0;
 	int playerIndex = 0; //this will be set by server for user
 	Player newPlayer = new Player(playerIndex, "SampleUser", 0, false);
-	public int seconds = 25;
+	Timer t = new Timer();
+	int seconds = 25;
 	public int minutes = 10;//Minutes not used
 	
 	@Override
@@ -42,8 +46,6 @@ public class PlayCard extends Activity {
 		}
 		
 		//Timer Here
-		
-		 Timer t = new Timer();
 	     t.scheduleAtFixedRate(new TimerTask(){
 	        	@Override
 	        	public void run(){
@@ -56,7 +58,7 @@ public class PlayCard extends Activity {
 	        					seconds = seconds-1;
 	        				}
 	        				else if(seconds > 5){
-	        					tv.setText(String.valueOf(seconds));
+	        					tv.setText(String.valueOf(seconds-5));
 	        					seconds = seconds - 1;
 	        				}
 	        				else if(seconds <= 5 && seconds > 0){
@@ -71,7 +73,12 @@ public class PlayCard extends Activity {
 	        					lockButton.setEnabled(false);
 	        					seconds = seconds - 1;
 	        				} else if(seconds == 0) {
-	        					//should move to display cards 
+	        					//should move to display cards
+	        					Intent displayCards = new Intent(PlayCard.this, DisplayCards.class);
+	        					displayCards.putExtra("matchData", (Parcelable) newMatch);
+	        					t.cancel();
+	        					t.purge();
+	        					startActivity(displayCards);
 	        				}
 	        			}
 	        		});

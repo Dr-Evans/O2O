@@ -8,7 +8,7 @@ import android.os.Parcelable;
 
 public class Player implements Parcelable {
 	//variables
-	int player_ID; 
+	int player_ID = 0; 
 	private ArrayList<CardBlue> cardsWon; //
 	String username; //from database
 	private int position; //position at "table"
@@ -23,7 +23,7 @@ public class Player implements Parcelable {
 	Player() {
 		cardsWon = new ArrayList<CardBlue>();
 		hand = new ArrayList<CardOrange>();
-		points = 0;
+		orangePlayed = new CardOrange();
 	}
 	
 	Player(int player_ID, String username, int position, boolean isJudge) {
@@ -40,15 +40,16 @@ public class Player implements Parcelable {
 	
 	//player from Parcel
 	Player(Parcel in) {
+		this();
 		player_ID = in.readInt();
-		in.readList(cardsWon, (ClassLoader) CardBlue.CREATOR);
+		in.readList(cardsWon, getClass().getClassLoader());
 		username = in.readString();
 		position = in.readInt();
 		points = in.readInt();
-		in.readList(hand, (ClassLoader) CardOrange.CREATOR);
+		in.readList(hand, getClass().getClassLoader());
 		isJudge = in.readByte() != 0;  //isJudge == true if byte != 0
 		randCount = in.readInt();
-		orangePlayed = in.readParcelable(CardOrange.class.getClassLoader());
+		orangePlayed = (CardOrange)in.readParcelable(CardOrange.class.getClassLoader());
 	}
 	
 	//method invoked by parcelable
@@ -122,6 +123,10 @@ public class Player implements Parcelable {
 		return position;
 	}
 	
+	public String getUsername() {
+		return username;
+	}
+	
 	public ArrayList<CardOrange> getHand() {
 		return hand;
 	}
@@ -156,12 +161,11 @@ public class Player implements Parcelable {
 	public void writeToParcel(Parcel dest, int flags) {
 		dest.writeInt(player_ID);
 		dest.writeList(cardsWon);
-		dest.writeString(username);;
+		dest.writeString(username);
 		dest.writeInt(position);
 		dest.writeInt(points);
 		dest.writeList(hand);
 		dest.writeByte((byte) (isJudge ? 1 : 0)); //true = 1
-		//myBoolean = in.readByte() != 0;     //myBoolean == true if byte != 0
 		dest.writeInt(randCount); 
 		dest.writeParcelable(orangePlayed, flags);
 	}
