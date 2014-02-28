@@ -17,7 +17,7 @@ import java.util.TimerTask;
 public class PlayCard extends Activity {
 	DatabaseHandler db = new DatabaseHandler(this);
 	Match newMatch = new Match(1, 2, 1);
-	int cardPreviewing = 0;
+	int cardPreviewing = -1;
 	int playerIndex = 0; //this will be set by server for user
 	Player newPlayer = new Player(playerIndex, "SampleUser", 0, false);
 	Timer t = new Timer();
@@ -63,12 +63,20 @@ public class PlayCard extends Activity {
 	        				}
 	        				else if(seconds <= 5 && seconds > 0){
 	        					tv.setText("TIME IS UP");
-	        					for(int i = 0; i < 7; i++) {
-	        						String buttonID = "card" + (i+1);
-	        						int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
-	        						Button cardButton = (Button)findViewById(resID);
-	        						cardButton.setEnabled(false);
-	        					}
+	        					if(seconds == 5) {
+	        						for(int i = 0; i < 7; i++) {
+		        						String buttonID = "card" + (i+1);
+		        						int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
+		        						Button cardButton = (Button)findViewById(resID);
+		        						cardButton.setEnabled(false);
+	        						}
+	        						if(newMatch.getPlayer(playerIndex).getOrangePlayed() == null && cardPreviewing != -1) {
+	        							newMatch.getPlayer(playerIndex).setOrangePlayed(cardPreviewing);
+	        							newMatch.setInPlay(newMatch.getPlayer(playerIndex).getOrange(cardPreviewing), playerIndex);
+	        						} else if(newMatch.getPlayer(playerIndex).getOrangePlayed() == null && cardPreviewing == -1) {
+	        							newMatch.setInPlay(newMatch.getPlayer(playerIndex).selectRand(), playerIndex);
+	        						}
+	        					} 
 	        					Button lockButton = (Button)findViewById(R.id.lockCard);
 	        					lockButton.setEnabled(false);
 	        					seconds = seconds - 1;

@@ -133,5 +133,13 @@ public class Match implements Parcelable {
 		dest.writeParcelable(roundBlue, flags);
 		dest.writeInt(winnerIndex);
 	}
+	
+	public void resetRound() {
+		for(int i = 0; i < getNumPlayers(); i++) {
+			getPlayer(i).resetRound();
+			inPlay.set(i, null);
+			//more functionality will get added here... not sure what for now
+		}
+	}
 		
 }

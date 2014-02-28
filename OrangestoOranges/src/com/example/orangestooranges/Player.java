@@ -82,6 +82,10 @@ public class Player implements Parcelable {
 		this.removeOrange(card_index);
 	}
 	
+	public CardOrange getOrangePlayed() {
+		return orangePlayed;
+	}
+	
 	//returns last orange played if not judge, else null
 	public CardOrange lastPlayed() {
 		if(isJudge == false) {
@@ -96,6 +100,7 @@ public class Player implements Parcelable {
 		Random rand = new Random();
 		int randomNum = rand.nextInt(hand.size());
 		orangePlayed = hand.get(randomNum);
+		removeOrange(randomNum);
 		return hand.get(randomNum);
 	}		
 	
@@ -170,5 +175,9 @@ public class Player implements Parcelable {
 		dest.writeParcelable(orangePlayed, flags);
 	}
 	
+	public void resetRound() {
+		didRand = false;
+		orangePlayed = null;
+	}
 }
 
