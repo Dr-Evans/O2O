@@ -10,7 +10,6 @@
     <string name="button3">Friend\nList</string>
     <string name="button4">Account\nSettings</string>
     <string name="button5">Login</string>
-    <string name="largetext">Large Text</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
@@ -28,5 +27,8 @@
     
     <color name="orange">#FFA500</color>
     <color name="lightBlue">#997373D9</color>
+    <color name="green">#00BB3F</color>
+    <color name="darkBlue">#1B1BB3</color>
+    <color name="lightOrange">#FFBF73</color>
 
 </resources>
