@@ -40,6 +40,7 @@
         android:id="@+id/playGameButton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/orange"
         android:layout_below="@+id/playGameText2"
         android:layout_marginTop="31dp"
         android:layout_toRightOf="@+id/playGameText1"

@@ -19,7 +19,9 @@ public class Match implements Parcelable {
 	int winnerIndex;
 	
 	//constructors
-	Match() {} //default
+	Match() {
+		players = new ArrayList<Player>();
+	}
 	
 	Match(int numPlayers, int maxScore, int match_ID) {
 		this.numPlayers = numPlayers;
@@ -38,12 +40,15 @@ public class Match implements Parcelable {
 	
 	//match from parcel
 	Match(Parcel in) {
-		in.readList(players, null); 
+		this();
+		in.readList(players, getClass().getClassLoader()); 
 		numPlayers = in.readInt();
 		round = in.readInt();
 		maxScore = in.readInt();
 		isOver = in.readByte() != 0;  //isOver == true if byte != 0
-		in.readList(inPlay, null);
+		isJudge = in.readInt();
+		inPlay = new ArrayList<CardOrange>();
+		in.readList(inPlay, getClass().getClassLoader());
 		match_ID = in.readInt();
 		roundBlue = in.readParcelable(CardBlue.class.getClassLoader());
 		winnerIndex = in.readInt();
@@ -127,6 +132,14 @@ public class Match implements Parcelable {
 		dest.writeInt(match_ID); 
 		dest.writeParcelable(roundBlue, flags);
 		dest.writeInt(winnerIndex);
+	}
+	
+	public void resetRound() {
+		for(int i = 0; i < getNumPlayers(); i++) {
+			getPlayer(i).resetRound();
+			inPlay.set(i, null);
+			//more functionality will get added here... not sure what for now
+		}
 	}
 		
 }

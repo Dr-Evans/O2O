@@ -1,23 +1,29 @@
 package com.example.orangestooranges;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import java.util.Timer;
-import java.util.TimerTask;
+import android.widget.Toast;
 
 public class PlayCard extends Activity {
 	DatabaseHandler db = new DatabaseHandler(this);
 	Match newMatch = new Match(1, 2, 1);
-	int cardPreviewing = 0;
+	int cardPreviewing = -1;
 	int playerIndex = 0; //this will be set by server for user
 	Player newPlayer = new Player(playerIndex, "SampleUser", 0, false);
-	public int seconds = 25;
+	Timer t = new Timer();
+	int seconds = 25;
 	public int minutes = 10;//Minutes not used
 	
 	@Override
@@ -42,8 +48,6 @@ public class PlayCard extends Activity {
 		}
 		
 		//Timer Here
-		
-		 Timer t = new Timer();
 	     t.scheduleAtFixedRate(new TimerTask(){
 	        	@Override
 	        	public void run(){
@@ -56,22 +60,35 @@ public class PlayCard extends Activity {
 	        					seconds = seconds-1;
 	        				}
 	        				else if(seconds > 5){
-	        					tv.setText(String.valueOf(seconds));
+	        					tv.setText(String.valueOf(seconds-5));
 	        					seconds = seconds - 1;
 	        				}
 	        				else if(seconds <= 5 && seconds > 0){
 	        					tv.setText("TIME IS UP");
-	        					for(int i = 0; i < 7; i++) {
-	        						String buttonID = "card" + (i+1);
-	        						int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
-	        						Button cardButton = (Button)findViewById(resID);
-	        						cardButton.setEnabled(false);
-	        					}
+	        					if(seconds == 5) {
+	        						for(int i = 0; i < 7; i++) {
+		        						String buttonID = "card" + (i+1);
+		        						int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
+		        						Button cardButton = (Button)findViewById(resID);
+		        						cardButton.setEnabled(false);
+	        						}
+	        						if(newMatch.getPlayer(playerIndex).getOrangePlayed() == null && cardPreviewing != -1) {
+	        							newMatch.getPlayer(playerIndex).setOrangePlayed(cardPreviewing);
+	        							newMatch.setInPlay(newMatch.getPlayer(playerIndex).getOrange(cardPreviewing), playerIndex);
+	        						} else if(newMatch.getPlayer(playerIndex).getOrangePlayed() == null && cardPreviewing == -1) {
+	        							newMatch.setInPlay(newMatch.getPlayer(playerIndex).selectRand(), playerIndex);
+	        						}
+	        					} 
 	        					Button lockButton = (Button)findViewById(R.id.lockCard);
 	        					lockButton.setEnabled(false);
 	        					seconds = seconds - 1;
 	        				} else if(seconds == 0) {
-	        					//should move to display cards 
+	        					//should move to display cards
+	        					Intent displayCards = new Intent(PlayCard.this, DisplayCards.class);
+	        					displayCards.putExtra("matchData", (Parcelable) newMatch);
+	        					t.cancel();
+	        					t.purge();
+	        					startActivity(displayCards);
 	        				}
 	        			}
 	        		});
@@ -108,6 +125,16 @@ public class PlayCard extends Activity {
 			cardButton.setEnabled(false);
 		}
 		v.setEnabled(false);
+	}
+	
+	@Override
+	public void onBackPressed() {
+		Context context = getApplicationContext();
+		CharSequence text = "You are in the middle of a game!";
+		int duration = Toast.LENGTH_SHORT;
+
+		Toast toast = Toast.makeText(context, text, duration);
+		toast.show();
 	}
 
 }
