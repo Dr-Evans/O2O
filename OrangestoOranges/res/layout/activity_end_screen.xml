@@ -18,7 +18,7 @@
         android:layout_width="101dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:background="@color/lightBlue"
+        android:background="@drawable/button_menu_orange"
         android:gravity="center"
         android:text="@string/playAgain" />
 
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:background="@color/lightBlue"
+        android:background="@drawable/button_menu_blue"
         android:gravity="center"
         android:text="@string/mainMenu" />
 

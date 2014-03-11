@@ -12,7 +12,7 @@
     	android:layout_height="wrap_content"
     	android:gravity="center"
     	android:orientation="vertical"
-    	android:background="@color/orange" 
+    	android:background="@color/lightOrange" 
     	>
     
 	    <TextView 
@@ -44,7 +44,7 @@
 		    android:id="@+id/login_button" 
 		    android:layout_width="130dp"
 		    android:layout_height="wrap_content"
-		    android:background="@color/darkBlue"
+		    android:background="@drawable/button_menu_blue"
 		    android:gravity="center"
 		    android:text="@string/login"/>
 		
@@ -93,7 +93,7 @@
 		    android:id="@+id/create_button" 
 		    android:layout_width="130dp"
 		    android:layout_height="wrap_content"
-		    android:background="@color/darkBlue"
+		    android:background="@drawable/button_menu_blue"
 		    android:gravity="center"
 		    android:text="@string/create_text"/>
 	

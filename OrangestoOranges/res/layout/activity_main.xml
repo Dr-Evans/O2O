@@ -24,9 +24,9 @@
 	    android:id="@+id/mainStatsButton"
 	    android:layout_width="130dp"
 	    android:layout_height="39dp"
-	    android:background="@color/orange"
+	    android:background="@drawable/button_menu_orange"
 	    android:gravity="center"
-	    android:text="@string/button0"
+	    android:text="@string/stats"
 	    android:textStyle="bold" />
     
 	<TextView
@@ -47,9 +47,9 @@
             android:id="@+id/mainPlayButton"
             android:layout_width="130dp"
             android:layout_height="match_parent"
-            android:background="@color/orange"
+            android:background="@drawable/button_menu_orange"
             android:gravity="center"
-            android:text="@string/button1"
+            android:text="@string/playGame"
             android:textStyle="bold" />
 
 		<TextView
@@ -62,9 +62,9 @@
             android:id="@+id/mainCreateButton"
             android:layout_width="130dp"
             android:layout_height="match_parent"
-            android:background="@color/darkBlue"
+            android:background="@drawable/button_menu_orange"
             android:gravity="center"
-            android:text="@string/button2"
+            android:text="@string/createGame"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -87,9 +87,9 @@
             android:id="@+id/mainFriendsButton"
             android:layout_width="130dp"
             android:layout_height="match_parent"
-            android:background="@color/orange"
+            android:background="@drawable/button_menu_blue"
             android:gravity="center"
-            android:text="@string/button3"
+            android:text="@string/friendList"
             android:textStyle="bold" />
 
         <TextView
@@ -102,9 +102,9 @@
             android:id="@+id/mainSettingsButton"
             android:layout_width="130dp"
             android:layout_height="match_parent"
-            android:background="@color/darkBlue"
+            android:background="@drawable/button_menu_blue"
             android:gravity="center"
-            android:text="@string/button4"
+            android:text="@string/accountSettings"
             android:textStyle="bold" />
 
     </LinearLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:state_pressed="true"
+        android:drawable="@color/darkBlue"> <!-- this is the background when pressed -->
+</item>
+    
+    <item android:drawable="@color/lightBlue"> <!-- these is the normal state of button when it is not pressed -->
+</item>
+ 
+</selector>
+
+
