@@ -1,4 +1,0 @@
-INDEX VERSION 1.126+C:\Users\Kirk\Documents\O2O\.metadata\.plugins\org.eclipse.jdt.core
-784765911.index
-1126399528.index
-1621361754.index
