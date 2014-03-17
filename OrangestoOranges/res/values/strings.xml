@@ -23,13 +23,14 @@
     <string name="create_text">Create</string>
     <string name="email">Email</string>
     <string name="confirm_email">Confirm Email</string>
-    
-    
+
     <color name="orange">#FF8B00</color>
     <color name="lightBlue">#997373D9</color>
     <color name="green">#00BB3F</color>
     <color name="darkBlue">#1B1BB3</color>
     <color name="lightOrange">#FFBF73</color>
+
     <string name="categories">Categories</string>
+    <string name="title_activity_setting">SettingActivity</string>
 
 </resources>
