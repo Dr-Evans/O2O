@@ -1,20 +1,18 @@
 package com.example.orangestooranges;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class PlayCard extends Activity {
 	DatabaseHandler db = new DatabaseHandler(this);
@@ -41,8 +39,6 @@ public class PlayCard extends Activity {
 			String buttonID = "card" + (i+1);
 			int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
 			Button cardButton = (Button)findViewById(resID);
-			//SRC_ATOP distorts the color less than MULTILPY but neither show hex colors correctly
-			cardButton.getBackground().setColorFilter(Color.parseColor("#FF8B00"),PorterDuff.Mode.SRC_ATOP);
 			cardButton.setText(newMatch.getPlayer(playerIndex).getOrange(i).getCtopic());
 			cardButton.setTag((Integer)i); //set the cards index in the view so it can be referenced when clicked
 		}
@@ -106,6 +102,12 @@ public class PlayCard extends Activity {
 	
 	public void cardClicked(View v) {
 		//onClick is set within XML to prevent a bunch of onClick listeners
+		if(cardPreviewing != -1) {
+			String buttonID = "card" + (cardPreviewing+1);
+			int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
+			Button cardButton = (Button)findViewById(resID);
+			cardButton.setBackgroundResource(R.drawable.button_playcard_default);
+		}
 		cardPreviewing = (Integer) v.getTag();
 		String cardInfo = newMatch.getPlayer(playerIndex).getOrange(cardPreviewing).getCtopic() + "\n"+newMatch.getPlayer(playerIndex).getOrange(cardPreviewing).getCdes();
 		TextView tv = (TextView)findViewById(R.id.cardPreview);
@@ -113,6 +115,7 @@ public class PlayCard extends Activity {
 		Button lockButton = (Button)findViewById(R.id.lockCard);
 		lockButton.getBackground().setColorFilter(Color.RED,PorterDuff.Mode.SRC_ATOP);
 		lockButton.setVisibility(View.VISIBLE);
+		v.setBackgroundResource(R.drawable.button_playcard_selected);
 	}
 	
 	public void lockCard(View v) {
@@ -125,16 +128,6 @@ public class PlayCard extends Activity {
 			cardButton.setEnabled(false);
 		}
 		v.setEnabled(false);
-	}
-	
-	@Override
-	public void onBackPressed() {
-		Context context = getApplicationContext();
-		CharSequence text = "You are in the middle of a game!";
-		int duration = Toast.LENGTH_SHORT;
-
-		Toast toast = Toast.makeText(context, text, duration);
-		toast.show();
 	}
 
 }
