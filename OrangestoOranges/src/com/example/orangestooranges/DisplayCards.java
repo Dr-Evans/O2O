@@ -4,12 +4,20 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class DisplayCards extends Activity {
+	Timer t = new Timer();
+	int seconds = 20;
+	public int minutes = 10;//Minutes not used
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -31,6 +39,32 @@ public class DisplayCards extends Activity {
 		    cardsLayout.addView(temp);
 		    cards[i] = temp;
 		}
+		//Timer Here
+	     t.scheduleAtFixedRate(new TimerTask(){
+	        	@Override
+	        	public void run(){
+	        		runOnUiThread(new Runnable(){
+	        			@Override
+	        			public void run(){
+	        				TextView tv = (TextView) findViewById(R.id.timer);
+	        				if(seconds > 5){
+	        					tv.setText(String.valueOf(seconds-5));
+	        					seconds--;
+	        				}
+	        				else if(seconds <= 5 && seconds > 0){
+	        					tv.setText("Next round is starting!");
+	        					seconds--;
+	        				} else if(seconds == 0) {
+	        					Intent nextRound = new Intent(DisplayCards.this, MainActivity.class);
+	        					//displayCards.putExtra("matchData", (Parcelable) newMatch);
+	        					t.cancel();
+	        					t.purge();
+	        					startActivity(nextRound);
+	        				}
+	        			}
+	        		});
+	        	}
+	        }, 0, 1000);
 	}
 	
 	@Override

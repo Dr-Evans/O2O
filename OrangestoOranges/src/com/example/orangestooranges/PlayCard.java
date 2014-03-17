@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
