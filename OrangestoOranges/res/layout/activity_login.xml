@@ -25,12 +25,12 @@
 	        android:padding="10dp"/>
 	    
 	    <EditText 
-	        android:id="@+id/signin_username"
+	        android:id="@+id/signin_email"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:layout_gravity="center"
-	        android:hint="@string/username"
-	        android:inputType="text"/>
+	        android:hint="@string/email"
+	        android:inputType="textEmailAddress"/>
 	    
 	    <EditText 
 	        android:id="@+id/signin_password"

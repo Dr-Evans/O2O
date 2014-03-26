@@ -7,7 +7,7 @@
     <TextView
         android:id="@+id/textView1"
         android:layout_width="306dp"
-        android:layout_height="254dp"
+        android:layout_height="235dp"
         android:layout_gravity="top|center_horizontal"
         android:gravity="center"
         android:text="@string/scoreBoard"
@@ -15,8 +15,8 @@
 
     <Button
         android:id="@+id/button1"
-        android:layout_width="101dp"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/button_menu_orange"
         android:gravity="center"
@@ -24,10 +24,10 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="106dp"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="30dp"
         android:background="@drawable/button_menu_blue"
         android:gravity="center"
         android:text="@string/mainMenu" />
