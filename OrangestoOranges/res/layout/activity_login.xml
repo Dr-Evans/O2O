@@ -4,15 +4,15 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/login_scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
+        android:background="@color/lightOrange"
         >
 
 	<LinearLayout
     	android:layout_width="match_parent"
     	android:layout_height="wrap_content"
     	android:gravity="center"
-    	android:orientation="vertical"
-    	android:background="@color/lightOrange" 
+    	android:orientation="vertical" 
     	>
     
 	    <TextView 

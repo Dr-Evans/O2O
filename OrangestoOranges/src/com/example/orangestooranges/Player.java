@@ -8,12 +8,12 @@ import android.os.Parcelable;
 
 public class Player implements Parcelable {
 	//variables
-	int player_ID = 0; 
+	int player_ID = 0; //database ID
 	private ArrayList<CardBlue> cardsWon; //
 	String username; //from database
 	private int position; //position at "table"
 	private int points; //number of rounds the player has won
-	private ArrayList<CardOrange> hand;
+	private ArrayList<CardOrange> hand; 
 	private boolean isJudge; //true if judge for the round
 	private int randCount; //number of times consecutively randomed
 	private boolean didRand;

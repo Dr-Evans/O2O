@@ -51,15 +51,22 @@ public class PlayCard extends Activity {
 	        			public void run(){
 	        				TextView tv = (TextView) findViewById(R.id.timer);
 	        				if(seconds > 20){//Provide buffer period
-	        					tv.setText("Starting...");
+	        					tv.setTextColor(Color.GREEN);
+	        					tv.setText("...");
 	        					seconds = seconds-1;
 	        				}
 	        				else if(seconds > 5){
+	        					if(seconds == 20) {
+	        						tv.setTextColor(Color.BLACK);
+	        					}
 	        					tv.setText(String.valueOf(seconds-5));
 	        					seconds = seconds - 1;
+	        					if(seconds == 9) {
+	        						tv.setTextColor(Color.RED);
+	        					}
 	        				}
 	        				else if(seconds <= 5 && seconds > 0){
-	        					tv.setText("TIME IS UP");
+	        					tv.setText("...");
 	        					if(seconds == 5) {
 	        						for(int i = 0; i < 7; i++) {
 		        						String buttonID = "card" + (i+1);
@@ -118,8 +125,8 @@ public class PlayCard extends Activity {
 	}
 	
 	public void lockCard(View v) {
-		newMatch.getPlayer(playerIndex).setOrangePlayed(cardPreviewing);
 		newMatch.setInPlay(newMatch.getPlayer(playerIndex).getOrange(cardPreviewing), playerIndex); 
+		newMatch.getPlayer(playerIndex).setOrangePlayed(cardPreviewing);
 		for(int i = 0; i < 7; i++) {
 			String buttonID = "card" + (i+1);
 			int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
