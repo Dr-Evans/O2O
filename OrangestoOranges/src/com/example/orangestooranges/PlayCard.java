@@ -14,11 +14,14 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class PlayCard extends Activity {
+	
+	Client request = new Client();
 	DatabaseHandler db = new DatabaseHandler(this);
-	Match newMatch = new Match(1, 2, 1);
+	Match newMatch = new Match(request.reqNumPlayers(),request.reqMaxScore(),request.reqMatchID(0));
 	int cardPreviewing = -1;
-	int playerIndex = 0; //this will be set by server for user
-	Player newPlayer = new Player(playerIndex, "SampleUser", 0, false);
+	//int playerIndex = request.reqPlayerID(0); //request first player ID 
+	int playerIndex = request.reqPlayerID(0);
+	Player newPlayer = new Player(playerIndex, "SampleUser", request.reqPosition(0), false);
 	Timer t = new Timer();
 	int seconds = 25;
 	public int minutes = 10;//Minutes not used
@@ -28,13 +31,15 @@ public class PlayCard extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_playcard);
 		newMatch.addPlayer(newPlayer);
-		newMatch.setRoundBlue(db.getBlue(1));
+		newMatch.setRoundBlue(db.getBlue(request.reqBlue()));
+		//newMatch.setRoundBlue(db.getBlue(1));
 		
 		TextView roundBlue = (TextView)findViewById(R.id.roundBlue);
 		roundBlue.setText(newMatch.getRoundBlue().getCtopic()+"\n"+newMatch.getRoundBlue().getCdes());
 		for(int i = 0; i < 7; i++) {
-			//this will need to be swapped for how players actually receive cards from server
-			newMatch.getPlayer(playerIndex).addOrange(db.getOrange(i+1));
+			//Request sent to server to fetch unused orange
+			newMatch.getPlayer(playerIndex).addOrange(db.getOrange(request.reqOrange()));
+			//newMatch.getPlayer(playerIndex).addOrange(db.getOrange(i+1));
 			String buttonID = "card" + (i+1);
 			int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
 			Button cardButton = (Button)findViewById(resID);
@@ -51,15 +56,22 @@ public class PlayCard extends Activity {
 	        			public void run(){
 	        				TextView tv = (TextView) findViewById(R.id.timer);
 	        				if(seconds > 20){//Provide buffer period
-	        					tv.setText("Starting...");
+	        					tv.setTextColor(Color.GREEN);
+	        					tv.setText("...");
 	        					seconds = seconds-1;
 	        				}
 	        				else if(seconds > 5){
+	        					if(seconds == 20) {
+	        						tv.setTextColor(Color.BLACK);
+	        					}
 	        					tv.setText(String.valueOf(seconds-5));
 	        					seconds = seconds - 1;
+	        					if(seconds == 9) {
+	        						tv.setTextColor(Color.RED);
+	        					}
 	        				}
 	        				else if(seconds <= 5 && seconds > 0){
-	        					tv.setText("TIME IS UP");
+	        					tv.setText("...");
 	        					if(seconds == 5) {
 	        						for(int i = 0; i < 7; i++) {
 		        						String buttonID = "card" + (i+1);
@@ -118,8 +130,9 @@ public class PlayCard extends Activity {
 	}
 	
 	public void lockCard(View v) {
-		newMatch.getPlayer(playerIndex).setOrangePlayed(cardPreviewing);
+
 		newMatch.setInPlay(newMatch.getPlayer(playerIndex).getOrange(cardPreviewing), playerIndex); 
+		newMatch.getPlayer(playerIndex).setOrangePlayed(cardPreviewing);
 		for(int i = 0; i < 7; i++) {
 			String buttonID = "card" + (i+1);
 			int resID = getResources().getIdentifier(buttonID, "id", getPackageName());

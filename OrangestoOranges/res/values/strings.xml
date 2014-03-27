@@ -23,6 +23,7 @@
     <string name="create_text">Create</string>
     <string name="email">Email</string>
     <string name="confirm_email">Confirm Email</string>
+    <string name="pickOrange">Pick an Orange below that you think best matches the Blue!</string>
 
     <color name="orange">#FF8B00</color>
     <color name="lightBlue">#997373D9</color>

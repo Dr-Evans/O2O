@@ -27,7 +27,7 @@ public class PlayGameMenu extends Activity {
 		play.setOnClickListener(new View.OnClickListener(){
 			public void onClick(View v)
 			{
-				startActivity(new Intent(PlayGameMenu.this, PlayCard.class));
+				startActivity(new Intent(PlayGameMenu.this, PregameWaiting.class));
 			}
 		});
 	}

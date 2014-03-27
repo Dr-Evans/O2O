@@ -3,6 +3,7 @@ package com.example.orangestooranges;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.widget.Button;
@@ -17,13 +18,13 @@ public class DisplayCards extends Activity {
 	Timer t = new Timer();
 	int seconds = 20;
 	public int minutes = 10;//Minutes not used
-	
+	Match match;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_displaycards);
 		Intent playCard = getIntent();
-		Match match = (Match) playCard.getParcelableExtra("matchData");
+		match = (Match) playCard.getParcelableExtra("matchData");
+		setContentView(R.layout.activity_displaycards);
 		TextView roundBlue = (TextView)findViewById(R.id.roundBlue);
 		roundBlue.setText(match.getRoundBlue().getCtopic()+"\n"+match.getRoundBlue().getCdes());
 		
@@ -52,11 +53,12 @@ public class DisplayCards extends Activity {
 	        					seconds--;
 	        				}
 	        				else if(seconds <= 5 && seconds > 0){
-	        					tv.setText("Next round is starting!");
+	        					tv.setTextColor(Color.GREEN);
+	        					tv.setText("...");
 	        					seconds--;
 	        				} else if(seconds == 0) {
 	        					Intent nextRound = new Intent(DisplayCards.this, MainActivity.class);
-	        					//displayCards.putExtra("matchData", (Parcelable) newMatch);
+	        					nextRound.putExtra("matchData", (Parcelable) match);
 	        					t.cancel();
 	        					t.purge();
 	        					startActivity(nextRound);
