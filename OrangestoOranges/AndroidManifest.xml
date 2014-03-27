@@ -66,6 +66,10 @@
             android:name="com.example.orangestooranges.SettingActivity"
             android:label="@string/title_activity_setting" >
         </activity>
+        <activity
+            android:name="com.example.orangestooranges.JudgeScreen"
+            android:label="@string/title_activity_judge_screen" >
+        </activity>
     </application>
 
 </manifest>

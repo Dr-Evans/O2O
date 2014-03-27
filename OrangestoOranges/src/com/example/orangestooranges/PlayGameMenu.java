@@ -38,5 +38,9 @@ public class PlayGameMenu extends Activity {
 		getMenuInflater().inflate(R.menu.play_menu, menu);
 		return true;
 	}
+	public void toJudge(View v){
+		Intent judge = new Intent(PlayGameMenu.this, JudgeScreen.class);
+		startActivity(judge);
+	}
 
 }

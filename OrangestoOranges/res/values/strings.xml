@@ -32,5 +32,6 @@
 
     <string name="categories">Categories</string>
     <string name="title_activity_setting">SettingActivity</string>
+    <string name="title_activity_judge_screen">JudgeScreen</string>
 
 </resources>
