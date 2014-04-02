@@ -133,8 +133,9 @@ public class JudgeScreen extends Activity implements OnClickListener {
 		}	
 	}
 
-
-
-	
+	@Override
+	public void onBackPressed() {
+		//cant press back button in judge screen
+	}
 
 }

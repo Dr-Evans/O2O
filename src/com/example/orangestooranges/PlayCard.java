@@ -141,5 +141,10 @@ public class PlayCard extends Activity {
 		}
 		v.setEnabled(false);
 	}
+	
+	@Override
+	public void onBackPressed() {
+		//cant press back button in play game
+	}
 
 }
