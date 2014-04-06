@@ -31,13 +31,6 @@ public class PlayGameMenu extends Activity {
 			}
 		});
 	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.play_menu, menu);
-		return true;
-	}
 	public void toJudge(View v){
 		Intent judge = new Intent(PlayGameMenu.this, JudgeScreen.class);
 		startActivity(judge);
