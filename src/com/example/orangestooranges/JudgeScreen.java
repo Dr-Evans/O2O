@@ -88,15 +88,6 @@ public class JudgeScreen extends Activity implements OnClickListener {
 	     b4.setText("Test4");
 	     b5.setText("Test5");
 	}
-	
-	
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.judge_screen, menu);
-		return true;
-	}
 
 	@Override
 	public void onClick(View v) {

@@ -103,14 +103,6 @@ public class LoginActivity extends Activity {
 			}
 		});
 	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.login, menu);
-		return true;
-	}
-	
 	public void authenticate(View view){
 		Intent intent = new Intent(this, MainActivity.class);
 		System.out.print("AUTHENTICATE");

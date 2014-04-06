@@ -41,7 +41,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	        	startActivity(new Intent(MainActivity.this, PlayGameMenu.class));
 	        	break;
 	        case R.id.mainSettingsButton:
-	        	Toast.makeText(MainActivity.this, "You Click Account Settings", Toast.LENGTH_SHORT).show();
+	        	startActivity(new Intent(MainActivity.this, SettingActivity.class));
 	        	break;
 	        case R.id.mainFriendsButton:
 	        	Toast.makeText(MainActivity.this, "You Click Friends List", Toast.LENGTH_SHORT).show();
@@ -54,12 +54,4 @@ public class MainActivity extends Activity implements OnClickListener {
 	            break;
 		}
 	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
-
 }
