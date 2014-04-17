@@ -27,10 +27,11 @@ public class MainActivity extends Activity implements OnClickListener {
 		mainSettings.setOnClickListener(this);
 		Button mainFriends = (Button)findViewById(R.id.mainFriendsButton);
 		mainFriends.setOnClickListener(this);
-		Button mainCreate = (Button)findViewById(R.id.mainCreateButton);
+		Button mainCreate = (Button)findViewById(R.id.mainPassPlayButton);
 		mainCreate.setOnClickListener(this);
 		Button mainStats = (Button)findViewById(R.id.mainStatsButton);
 		mainStats.setOnClickListener(this);
+		
 	}
 	
 	public void onClick(View v) {
@@ -46,7 +47,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	        case R.id.mainFriendsButton:
 	        	Toast.makeText(MainActivity.this, "You Click Friends List", Toast.LENGTH_SHORT).show();
 	            break;
-	        case R.id.mainCreateButton:
+	        case R.id.mainPassPlayButton:
 	        	Toast.makeText(MainActivity.this, "You Click Create Game", Toast.LENGTH_SHORT).show();
 	            break;
 	        case R.id.mainStatsButton:
