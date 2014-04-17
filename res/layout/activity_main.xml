@@ -39,7 +39,7 @@
             android:layout_height="60dp"
             android:layout_marginLeft="15dp"
             android:background="@drawable/button_menu_orange"
-            android:text="@string/passAndPlay"
+            android:text="@string/passPlay"
             android:textStyle="bold" />
     </LinearLayout>
 

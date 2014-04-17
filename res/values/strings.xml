@@ -5,7 +5,7 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello\nWorld!</string>
     <string name="stats">Stats</string>
-    <string name="playGame">Play\nGame</string>
+    <string name="playGame">Play</string>
     <string name="createGame">Create\nGame</string>
     <string name="friendList">Friend\nList</string>
     <string name="accountSettings">Account\nSettings</string>
@@ -39,5 +39,6 @@
     <string name="Step3">Once all players have locked in a selection. It is the judges turn to select the closest orange that relates to the blue.</string>
     <string name="Step4">The player who\'s orange gets chosen, wins the round and gets a point. The player who first reaches 10 points wins the game.</string>
     <string name="Instructions">Instructions</string>
+    <string name="passPlay">Pass Play</string>
 
 </resources>
