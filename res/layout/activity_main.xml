@@ -7,12 +7,21 @@
     android:orientation="vertical" 
     >
 
+    <ImageButton
+        android:id="@+id/imageButtonInstructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="120dp"
+        android:contentDescription="@string/Instructions"
+       	android:background="@android:color/transparent"
+        android:src="@drawable/help" />
+
     <TextView
         android:id="@+id/mainTextView1"
         android:layout_width="fill_parent"
-        android:layout_height="128dp"
-        android:gravity="center"
+        android:layout_height="93dp"
         android:layout_marginBottom="50dp"
+        android:gravity="center"
         android:text="@string/username"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 

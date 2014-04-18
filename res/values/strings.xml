@@ -36,9 +36,10 @@
     <string name="title_activity_judge_screen">JudgeScreen</string>
     <string name="Step1">During each round each player is dristributed five oranges, with a certain word on each. A judge is also appointed at the start of the round.</string>
     <string name="Step2">Every one else during the round is a player. As a player you must select the card that closest describes the blue during that round.</string>
-    <string name="Step3">Once all players have locked in a selection. It is the judges turn to select the closest orange that relates to the blue.</string>
-    <string name="Step4">The player who\'s orange gets chosen, wins the round and gets a point. The player who first reaches 10 points wins the game.</string>
+    <string name="Step3">Once all players have locked in a selection, the judge selects the closest orange that relates to the blue.</string>
+    <string name="Step4">The player who\'s orange gets chosen, wins the round and gets a point. The player who first has the most points at the end of the round wins the game.</string>
     <string name="Instructions">Instructions</string>
     <string name="passPlay">Pass Play</string>
+    <string name="bullet">Bullet</string>
 
 </resources>
