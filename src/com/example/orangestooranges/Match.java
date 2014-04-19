@@ -1,7 +1,8 @@
 package com.example.orangestooranges;
 
 import java.util.ArrayList;
-
+import java.util.Stack;
+import android.content.Intent;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -17,13 +18,15 @@ public class Match implements Parcelable {
 	int match_ID; //ID unique to this match
 	CardBlue roundBlue;
 	int winnerIndex;
-	
+	Stack<CardBlue> blueStack = new Stack<CardBlue>();
+	Stack<CardOrange> orangeStack = new Stack<CardOrange>();
+
 	//constructors
 	Match() {
 		players = new ArrayList<Player>();
 	}
 	
-	Match(int numPlayers, int maxScore, int match_ID) {
+	Match(int numPlayers, int maxScore, int match_ID, Stack<CardBlue> blueStack, Stack<CardOrange> orangeStack) {
 		this.numPlayers = numPlayers;
 		this.maxScore = maxScore;
 		this.match_ID = match_ID;
@@ -32,10 +35,14 @@ public class Match implements Parcelable {
 		isJudge = 0;
 		roundBlue = new CardBlue();
 		players = new ArrayList<Player>();
+		for(int i = 0; i < numPlayers; i++)
+			players.add(new Player());
 		inPlay = new ArrayList<CardOrange>();
 		for(int i = 0; i < numPlayers; i++) {
 			inPlay.add(null);
 		}
+		this.blueStack = blueStack;
+		this.orangeStack = orangeStack;
 	}
 	
 	//match from parcel
@@ -52,6 +59,8 @@ public class Match implements Parcelable {
 		match_ID = in.readInt();
 		roundBlue = in.readParcelable(CardBlue.class.getClassLoader());
 		winnerIndex = in.readInt();
+		in.readList(blueStack, getClass().getClassLoader());
+		in.readList(orangeStack, getClass().getClassLoader());
 	}
 	
 	//method invoked by parcelable
@@ -64,6 +73,14 @@ public class Match implements Parcelable {
 			return new Match[size];
 		}
 	};
+	
+	public void dealOranges(Player p)
+	{
+		while(p.getHand().size() < 7)
+		{
+			p.addOrange(orangeStack.pop());
+		}
+	}
 	
 	public int getNumPlayers() {
 		return numPlayers;
@@ -132,6 +149,8 @@ public class Match implements Parcelable {
 		dest.writeInt(match_ID); 
 		dest.writeParcelable(roundBlue, flags);
 		dest.writeInt(winnerIndex);
+		dest.writeList(blueStack);
+		dest.writeList(orangeStack);
 	}
 	
 	public void resetRound() {

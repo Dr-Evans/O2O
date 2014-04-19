@@ -24,6 +24,7 @@ public class Player implements Parcelable {
 		cardsWon = new ArrayList<CardBlue>();
 		hand = new ArrayList<CardOrange>();
 		orangePlayed = new CardOrange();
+		isJudge = false;
 	}
 	
 	Player(int player_ID, String username, int position, boolean isJudge) {
@@ -79,7 +80,7 @@ public class Player implements Parcelable {
 	//sets the cardPlayed to the card in hand at given index
 	public void setOrangePlayed(int card_index) {
 		orangePlayed = hand.get(card_index);
-		this.removeOrange(card_index);
+		this.removeOrange(orangePlayed);
 	}
 	
 	public CardOrange getOrangePlayed() {
@@ -100,13 +101,13 @@ public class Player implements Parcelable {
 		Random rand = new Random();
 		int randomNum = rand.nextInt(hand.size());
 		orangePlayed = hand.get(randomNum);
-		removeOrange(randomNum);
+		removeOrange(orangePlayed);
 		return hand.get(randomNum);
 	}		
 	
 	//selects an orange and removes from hand
-	public void removeOrange(int card_index) {
-		hand.remove(card_index);
+	public void removeOrange(CardOrange card) {
+		hand.remove(card);
 	}
 	
 	//makes player judge

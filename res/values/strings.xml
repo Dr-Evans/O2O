@@ -5,8 +5,8 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello\nWorld!</string>
     <string name="stats">Stats</string>
-    <string name="playGame">Play</string>
-    <string name="createGame">Create\nGame</string>
+    <string name="playGame">Play\nGame</string>
+    <string name="passPlay">Pass\nPlay</string>
     <string name="friendList">Friend\nList</string>
     <string name="accountSettings">Account\nSettings</string>
     <string name="button5">Login</string>
@@ -24,6 +24,7 @@
     <string name="email">Email</string>
     <string name="confirm_email">Confirm Email</string>
     <string name="pickOrange">Pick an Orange below that you think best matches the Blue!</string>
+    <string name="splash">Splash Screen</string>
 
     <color name="orange">#FF8B00</color>
     <color name="lightBlue">#997373D9</color>
@@ -31,15 +32,15 @@
     <color name="darkBlue">#1B1BB3</color>
     <color name="lightOrange">#FFBF73</color>
 
-    <string name="categories">Categories</string>
+    <string name="numPlayers">Players</string>
     <string name="title_activity_setting">SettingActivity</string>
     <string name="title_activity_judge_screen">JudgeScreen</string>
     <string name="Step1">During each round each player is dristributed five oranges, with a certain word on each. A judge is also appointed at the start of the round.</string>
     <string name="Step2">Every one else during the round is a player. As a player you must select the card that closest describes the blue during that round.</string>
-    <string name="Step3">Once all players have locked in a selection, the judge selects the closest orange that relates to the blue.</string>
-    <string name="Step4">The player who\'s orange gets chosen, wins the round and gets a point. The player who first has the most points at the end of the round wins the game.</string>
+    <string name="Step3">Once all players have locked in a selection. The judge selects the closest orange that relates to the blue.</string>
+    <string name="Step4">The player who\'s orange gets chosen, wins the round and gets a point. The player who has the most points wins the game.</string>
     <string name="Instructions">Instructions</string>
-    <string name="passPlay">Pass Play</string>
-    <string name="bullet">Bullet</string>
+    <string name="title_activity_pass_play">PassPlay</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
 
 </resources>

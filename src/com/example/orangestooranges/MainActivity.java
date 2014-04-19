@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
+import android.widget.ImageButton;
 
 public class MainActivity extends Activity implements OnClickListener {
 
@@ -50,7 +50,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	        	Toast.makeText(MainActivity.this, "You Click Friends List", Toast.LENGTH_SHORT).show();
 	            break;
 	        case R.id.mainPassPlayButton:
-	        	Toast.makeText(MainActivity.this, "You Click Create Game", Toast.LENGTH_SHORT).show();
+	        	startActivity(new Intent(MainActivity.this, PlayGameMenu.class));
 	            break;
 	        case R.id.mainStatsButton:
 	        	Toast.makeText(MainActivity.this, "You Click Stats", Toast.LENGTH_SHORT).show();

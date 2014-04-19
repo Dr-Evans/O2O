@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="15" >
+
+            <TextView
+                android:id="@+id/roundBlue"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/lightBlue"
+                android:gravity="center"
+                android:text=""
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="85" >
+
+            <TextView
+                android:id="@+id/timer"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="30sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/cardPreview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="@string/pickOrange"
+        android:textSize="20sp" >
+    </TextView>
+
+    <Button
+        android:id="@+id/lockCard"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/horizontalScroll"
+        android:onClick="lockCard"
+        android:text="@string/lockCard"
+        android:visibility="gone" >
+    </Button>
+
+    <HorizontalScrollView
+        android:id="@id/horizontalScroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:fadeScrollbars="false" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/card1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5sp"
+                android:background="@drawable/button_menu_orange"
+                android:onClick="cardClicked"
+                android:padding="5sp"
+                android:text="" />
+
+            <Button
+                android:id="@+id/card2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5sp"
+                android:background="@drawable/button_menu_orange"
+                android:onClick="cardClicked"
+                android:padding="5sp"
+                android:text="" />
+
+            <Button
+                android:id="@+id/card3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5sp"
+                android:background="@drawable/button_menu_orange"
+                android:onClick="cardClicked"
+                android:padding="5sp"
+                android:text="" />
+
+            <Button
+                android:id="@+id/card4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5sp"
+                android:background="@drawable/button_menu_orange"
+                android:onClick="cardClicked"
+                android:padding="5sp"
+                android:text="" />
+
+            <Button
+                android:id="@+id/card5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5sp"
+                android:background="@drawable/button_menu_orange"
+                android:onClick="cardClicked"
+                android:padding="5sp"
+                android:text="" />
+
+            <Button
+                android:id="@+id/card6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5sp"
+                android:background="@drawable/button_menu_orange"
+                android:onClick="cardClicked"
+                android:padding="5sp"
+                android:text="" />
+
+            <Button
+                android:id="@+id/card7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_menu_orange"
+                android:onClick="cardClicked"
+                android:padding="5sp"
+                android:text="" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/passPlayPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>

@@ -1,6 +1,10 @@
 package com.example.orangestooranges;
 
+import java.util.Collections;
+import java.util.Stack;
+
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
@@ -9,6 +13,7 @@ import android.widget.*;
 
 public class PlayGameMenu extends Activity {
 
+	DatabaseHandler db = new DatabaseHandler(this);
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -19,7 +24,7 @@ public class PlayGameMenu extends Activity {
 		 */
 		
 		Spinner dropdown = (Spinner)findViewById(R.id.playGameSpinner1);
-		String[] items = new String[]{"All", "Random", "Other"};
+		String[] items = new String[]{"4", "5", "6"};
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, items);
 		dropdown.setAdapter(adapter);
 		
@@ -27,7 +32,26 @@ public class PlayGameMenu extends Activity {
 		play.setOnClickListener(new View.OnClickListener(){
 			public void onClick(View v)
 			{
-				startActivity(new Intent(PlayGameMenu.this, PregameWaiting.class));
+				Stack<CardOrange> orangeStack = new Stack<CardOrange>();
+				Stack<CardBlue> blueStack = new Stack<CardBlue>();
+				for(int i = 1; i <= 746; i++)
+				{
+					orangeStack.push(db.getOrange(i));
+				}
+				for(int i = 1; i <= 249; i++)
+				{
+					blueStack.push(db.getBlue(i));
+				}
+				
+				Collections.shuffle(orangeStack);
+				Collections.shuffle(blueStack);
+				
+				Match match = new Match(4,2,1, blueStack, orangeStack);
+				match.setRoundBlue(blueStack.pop());
+				match.players.get(match.getNumPlayers()-1).makeJudge();
+				Intent next = new Intent(PlayGameMenu.this, SplashScreen.class);
+				next.putExtra("matchData", (Parcelable) match);
+				startActivity(next);
 			}
 		});
 	}

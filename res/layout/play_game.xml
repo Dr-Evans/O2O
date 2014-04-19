@@ -13,9 +13,9 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="34dp"
         android:gravity="center"
-        android:text="@string/categories"
-        android:textSize="30sp"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:text="@string/numPlayers"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="30sp" />
 
     <Spinner
         android:id="@+id/playGameSpinner1"

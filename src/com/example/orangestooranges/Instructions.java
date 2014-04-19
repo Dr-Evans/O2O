@@ -1,12 +1,8 @@
 package com.example.orangestooranges;
+
 import android.os.Bundle;
 import android.app.Activity;
-import android.content.Intent;
 import android.view.Menu;
-import android.view.View;
-import android.widget.*;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 public class Instructions extends Activity {
 
@@ -14,7 +10,6 @@ public class Instructions extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_instructions);
-		
 	}
 
 	@Override

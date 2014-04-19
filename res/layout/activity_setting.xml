@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/seekBar1"
-        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignLeft="@+id/splashTextView"
         android:text="SFX"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -58,7 +58,7 @@
         android:id="@+id/seekBar2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView1"
+        android:layout_alignBottom="@+id/splashTextView"
         android:layout_toRightOf="@+id/textView3" />
 
     <SeekBar
@@ -105,15 +105,15 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button1"
-        android:layout_alignBottom="@+id/button1"
+        android:layout_alignBaseline="@+id/splashButton"
+        android:layout_alignBottom="@+id/splashButton"
         android:layout_alignRight="@+id/textView5"
         android:layout_marginRight="24dp"
         android:background="@drawable/button_menu_blue"
         android:text="Confirm" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/splashButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/seekBar2"
@@ -123,7 +123,7 @@
         android:text="Sign Out" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/splashTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView5"

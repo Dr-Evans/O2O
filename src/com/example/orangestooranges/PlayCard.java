@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+
+import java.util.Stack;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -17,7 +19,9 @@ public class PlayCard extends Activity {
 	
 	Client request = new Client();
 	DatabaseHandler db = new DatabaseHandler(this);
-	Match newMatch = new Match(request.reqNumPlayers(),request.reqMaxScore(),request.reqMatchID(0));
+	Stack o = new Stack();
+	Stack b = new Stack();
+	Match newMatch = new Match(request.reqNumPlayers(),request.reqMaxScore(),request.reqMatchID(0), b, o);
 	int cardPreviewing = -1;
 	//int playerIndex = request.reqPlayerID(0); //request first player ID 
 	int playerIndex = request.reqPlayerID(0);

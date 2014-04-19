@@ -6,8 +6,8 @@
     android:gravity="center"
     android:orientation="vertical" 
     >
-
-    <ImageButton
+	
+     <ImageButton
         android:id="@+id/imageButtonInstructions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,13 +15,13 @@
         android:contentDescription="@string/Instructions"
        	android:background="@android:color/transparent"
         android:src="@drawable/help" />
-
+    
     <TextView
         android:id="@+id/mainTextView1"
         android:layout_width="fill_parent"
-        android:layout_height="93dp"
-        android:layout_marginBottom="50dp"
+        android:layout_height="128dp"
         android:gravity="center"
+        android:layout_marginBottom="50dp"
         android:text="@string/username"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 

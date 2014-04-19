@@ -1,11 +1,13 @@
 package com.example.orangestooranges;
 
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,14 +15,16 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.os.Build;
 
 public class JudgeScreen extends Activity implements OnClickListener {
 	
 	Timer t = new Timer();
-	int seconds = 20;
+	int seconds = 10;
 	public int minutes = 10;//Minutes not used
+	Match match;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,24 +32,54 @@ public class JudgeScreen extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_judge_screen);
 		Intent playCard = getIntent();
 		//No match set up yet so this section of code is commented out
-		/*Match match = (Match) playCard.getParcelableExtra("matchData");
+		match = (Match) playCard.getParcelableExtra("matchData");
 		TextView roundBlue = (TextView)findViewById(R.id.roundBlue);
 		roundBlue.setText(match.getRoundBlue().getCtopic()+"\n"+match.getRoundBlue().getCdes());
-		
+				
 		//dynamically print out cards as text views
 		//Copied from DisplayCards
 		int numCards = match.getNumPlayers();
 		Button[] cards = new Button[numCards];
+		for(int i = 0; i < numCards; i++)
+		{
+			if(i == 0)
+				cards[i] = (Button) findViewById(R.id.O1);
+			if(i == 1)
+				cards[i] = (Button) findViewById(R.id.O2);
+			if(i == 2)
+				cards[i] = (Button) findViewById(R.id.O3);
+			if(i == 3)
+				cards[i] = (Button) findViewById(R.id.O4);
+			if(i == 4)
+				cards[i] = (Button) findViewById(R.id.O5);
+		}
+		for(int i = 0; i < match.getNumPlayers(); i++)
+		{
+			if(!match.getPlayer(i).getJudge())
+			{
+				cards[i].setText("Player "+ (i+1) + ": " + match.getPlayer(i).getOrangePlayed().getCtopic());
+				CardOrange rem = match.getPlayer(i).getOrangePlayed();
+				match.getPlayer(i).removeOrange(rem);
+			}
+		}
+		for(int i = 0; i < numCards; i++)
+		{
+			if(match.inPlay.get(i) != null)
+				match.inPlay.set(i, null);
+		}
+		
+		/*
 		Button temp; 
 		RelativeLayout judge = (RelativeLayout) findViewById(R.id.judge);
 		for (int i = 0; i < numCards; i++) {
 		    temp = new Button(this);
 		    temp.setBackgroundResource(R.drawable.button_menu_orange);
-		    temp.setText(match.getPlayer(i).getUsername() + ": " + match.getPlayer(i).getOrangePlayed().getCtopic());
+		    temp.setText("Player "+ (i+1) + ": " + match.getPlayer(i).getOrangePlayed().getCtopic());
 		    judge.addView(temp);
 		    temp.setOnClickListener(this);
 		    cards[i] = temp;
-		}*/
+		}
+		*/
 			
 		//Timer Here
 	     t.scheduleAtFixedRate(new TimerTask(){
@@ -63,9 +97,38 @@ public class JudgeScreen extends Activity implements OnClickListener {
 	        					tv.setText("Time is UP!");
 	        					seconds--;
 	        				} else if(seconds == 0) {
-	        					//Back to main menu
-	        					//Select a random card!
-	        					Intent nextRound = new Intent(JudgeScreen.this, MainActivity.class);
+	        						        					
+        						for(int i = 0; i < match.getNumPlayers(); i++)
+        						{
+        							if(match.players.get(i).getJudge() && i == 0)
+        							{
+        								match.players.get(i).unmakeJudge();
+        								match.players.get(match.getNumPlayers()-1).makeJudge();
+        								break;
+        								
+        							}
+        							else if(match.players.get(i).getJudge())
+        							{
+        								match.players.get(i).unmakeJudge();
+        								match.players.get(i-1).makeJudge();
+        								break;
+        							}        							
+        						}
+        						Intent nextRound = new Intent();
+        						for(int i = 0; i < match.getNumPlayers(); i++)
+        						{
+        							if(match.players.get(i).getPoints() == match.maxScore)
+        							{
+        								nextRound = new Intent(JudgeScreen.this, PlayGameMenu.class);
+        								break;
+        							}
+        							else
+        								nextRound = new Intent(JudgeScreen.this, SplashScreen.class);
+        						}
+        						
+        						match.setRoundBlue(match.blueStack.pop());
+	        					
+	        					nextRound.putExtra("matchData", (Parcelable) match);
 	        					t.cancel();
 	        					t.purge();
 	        					startActivity(nextRound);
@@ -77,7 +140,7 @@ public class JudgeScreen extends Activity implements OnClickListener {
 	     
 	     //Manually initialize the buttons
 	     //Delete this later
-	     Button b1 = (Button) findViewById(R.id.O1);
+	     /*Button b1 = (Button) findViewById(R.id.O1);
 	     Button b2 = (Button) findViewById(R.id.O2);
 	     Button b3 = (Button) findViewById(R.id.O3);
 	     Button b4 = (Button) findViewById(R.id.O4);
@@ -86,7 +149,7 @@ public class JudgeScreen extends Activity implements OnClickListener {
 	     b2.setText("Test2");
 	     b3.setText("Test3");
 	     b4.setText("Test4");
-	     b5.setText("Test5");
+	     b5.setText("Test5");*/
 	}
 
 	@Override
@@ -108,19 +171,40 @@ public class JudgeScreen extends Activity implements OnClickListener {
 		switch(v.getId()){
         	case R.id.O1:
         		t.setText("You have picked "+b1.getText());
-        		break;
+        		if(b1.getText() != "")
+        		{
+        			match.players.get(0).updatePoints(match.roundBlue);
+        			break;
+        		}
         	case R.id.O2:
         		t.setText("You have picked "+b2.getText());
-        		break;
+        		if(b2.getText() != "")
+        		{
+        			match.players.get(1).updatePoints(match.roundBlue);
+        			break;
+        		}
         	case R.id.O3:
         		t.setText("You have picked "+b3.getText());
-        		break;
+        		
+        		if(b3.getText() != "")
+        		{
+        			match.players.get(2).updatePoints(match.roundBlue);
+        			break;
+        		}
         	case R.id.O4:
         		t.setText("You have picked "+b4.getText());
-        		break;
+        		if(b4.getText() != "")
+        		{
+        			match.players.get(3).updatePoints(match.roundBlue);
+        			break;
+        		}
         	case R.id.O5:
         		t.setText("You have picked "+b5.getText());
-        		break;
+        		if(b5.getText() != "")
+        		{
+        			match.players.get(4).updatePoints(match.roundBlue);
+        			break;
+        		}
 		}	
 	}
 

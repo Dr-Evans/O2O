@@ -12,9 +12,8 @@
         android:id="@+id/imageView1"
         android:layout_width="12dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/splashTextView"
         android:layout_marginTop="12dp"
-        android:contentDescription="@string/bullet"
         android:src="@drawable/orange_bullet" />
 
     <ImageView
@@ -24,7 +23,6 @@
         android:layout_alignLeft="@+id/imageView1"
         android:layout_below="@+id/textView2"
         android:layout_marginTop="18dp"
-        android:contentDescription="@string/bullet"
         android:src="@drawable/orange_bullet" />
 
     <TextView
@@ -43,7 +41,6 @@
         android:layout_alignLeft="@+id/ImageView01"
         android:layout_below="@+id/textView3"
         android:layout_marginTop="15dp"
-        android:contentDescription="@string/bullet"
         android:src="@drawable/orange_bullet" />
 
     <TextView
@@ -62,7 +59,6 @@
         android:layout_alignLeft="@+id/ImageView02"
         android:layout_below="@+id/textView4"
         android:layout_marginTop="18dp"
-        
         android:src="@drawable/orange_bullet" />
 
     <TextView
@@ -84,7 +80,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/splashTextView"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
