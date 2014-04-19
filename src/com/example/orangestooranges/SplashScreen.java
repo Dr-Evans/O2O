@@ -83,5 +83,10 @@ public class SplashScreen extends Activity {
 		getMenuInflater().inflate(R.menu.splash_screen, menu);
 		return true;
 	}
+	
+	@Override
+	public void onBackPressed() {
+		//This will make it so you cannot press the back button in Pass Play
+	}
 
 }
