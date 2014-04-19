@@ -50,14 +50,5 @@
     	android:paddingLeft="50dp"
         android:background="@drawable/button_menu_orange"
         android:text="@string/playGame" />
-    <Button
-        android:id="@+id/beJudge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/playGameButton1"
-        android:layout_centerHorizontal="true"
-        android:text="Click to be Judge"
-        android:onClick="toJudge"
-        />
 
 </RelativeLayout>
