@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
@@ -85,7 +86,10 @@ public class JudgeScreen extends Activity implements OnClickListener {
 		        					seconds--;
 		        				}
 		        				else if(seconds <= 5 && seconds > 0){
-		        					tv.setText("Time is UP!");
+		        					if(seconds == 5 ){
+		        						tv.setText("...");
+		        						tv.setTextColor(Color.RED);
+		        					}
 		        					seconds--;
 		        				} else if(seconds == 0) {
 		        						        					
@@ -141,11 +145,9 @@ public class JudgeScreen extends Activity implements OnClickListener {
 				temp.setEnabled(false);
 			}
 		}
-		
 		int id = v.getId();
 		Button b = (Button) findViewById(id);
-		TextView t = (TextView) findViewById(R.id.choice);
-		t.setText("You have picked " + b.getText());
+		b.setBackgroundResource(R.drawable.button_playcard_selected);
 		match.players.get(id).updatePoints(match.roundBlue);
 	}
 	

@@ -146,7 +146,7 @@ public class PassPlay extends Activity {
 	}
 	
 	public void lockCard(View v) {
-
+		if(seconds > 5) seconds = 5;
 		match.setInPlay(currPlayer.getOrange(cardPreviewing), playerIndex); 
 		currPlayer.setOrangePlayed(cardPreviewing);
 		for(int i = 0; i < 7; i++) {

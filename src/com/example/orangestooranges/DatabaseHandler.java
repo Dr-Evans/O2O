@@ -4065,8 +4065,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
   //returns corresponding Orange given ID
     public CardOrange getOrange(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
- 
-        Cursor cursor = db.query(ORANGES_TABLE, new String[] { ID_COLUMN,
+        Cursor cursor = null;
+        cursor = db.query(ORANGES_TABLE, new String[] { ID_COLUMN,
                 NAME_COLUMN, TEXT_COLUMN}, ID_COLUMN + "=?",
                 new String[] { String.valueOf(id) }, null, null, null, null);
         if (cursor != null)
@@ -4075,14 +4075,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         CardOrange newOrange = new CardOrange(Integer.parseInt(cursor.getString(0)),
                 cursor.getString(1), cursor.getString(2));
         // return card
+        cursor.close();
         return newOrange;
     }
     
     //returns corresponding Blue given ID
     public CardBlue getBlue(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
- 
-        Cursor cursor = db.query(BLUES_TABLE, new String[] { ID_COLUMN,
+        Cursor cursor = null;
+        cursor = db.query(BLUES_TABLE, new String[] { ID_COLUMN,
                 NAME_COLUMN, TEXT_COLUMN}, ID_COLUMN + "=?",
                 new String[] { String.valueOf(id) }, null, null, null, null);
         if (cursor != null)
@@ -4091,6 +4092,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         CardBlue newBlue = new CardBlue(Integer.parseInt(cursor.getString(0)),
                 cursor.getString(1), cursor.getString(2));
         // return card
+        cursor.close();
         return newBlue;
     }
     
