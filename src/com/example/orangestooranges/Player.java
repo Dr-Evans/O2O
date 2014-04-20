@@ -180,5 +180,9 @@ public class Player implements Parcelable {
 		didRand = false;
 		orangePlayed = null;
 	}
+	
+	public void setCardOrangePlayed(CardOrange card) {
+		orangePlayed = card;
+	}
 }
 

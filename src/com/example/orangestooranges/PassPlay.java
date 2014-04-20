@@ -41,6 +41,7 @@ public class PassPlay extends Activity {
 			{
 				match.dealOranges(match.players.get(i));
 				currPlayer = match.players.get(i);
+				currPlayer.setCardOrangePlayed(null);
 				playerIndex = i;
 				s = "Player " + (i+1) + "'s turn.";
 				break;
@@ -82,8 +83,9 @@ public class PassPlay extends Activity {
         					}
         				}
         				else if(seconds <= 5 && seconds > 0){
-        					tv.setText("...");
+        					
         					if(seconds == 5) {
+        						tv.setText("...");	
         						for(int i = 0; i < 7; i++) {
 	        						String buttonID = "card" + (i+1);
 	        						int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
@@ -91,8 +93,8 @@ public class PassPlay extends Activity {
 	        						cardButton.setEnabled(false);
         						}
         						if(currPlayer.getOrangePlayed() == null && cardPreviewing != -1) {
-        							currPlayer.setOrangePlayed(cardPreviewing);
         							match.setInPlay(currPlayer.getOrange(cardPreviewing), playerIndex);
+        							currPlayer.setOrangePlayed(cardPreviewing);
         						} else if(currPlayer.getOrangePlayed() == null && cardPreviewing == -1) {
         							match.setInPlay(currPlayer.selectRand(), playerIndex);
         						}
