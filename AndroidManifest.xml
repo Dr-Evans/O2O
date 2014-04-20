@@ -15,10 +15,12 @@
         android:theme="@android:style/Theme.NoTitleBar" >
         <activity
             android:name="com.example.orangestooranges.MainActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.example.orangestooranges.LoginActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,43 +30,53 @@
         </activity>
         <activity
             android:name="com.example.orangestooranges.PlayGameMenu"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.example.orangestooranges.PregameWaiting"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.example.orangestooranges.PlayCard"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.example.orangestooranges.EndScreen"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_end_screen" >
         </activity>
         <activity
             android:name="com.example.orangestooranges.DisplayCards"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.example.orangestooranges.SettingActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_setting" >
         </activity>
         <activity
             android:name="com.example.orangestooranges.JudgeScreen"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_judge_screen" >
         </activity>
         <activity
             android:name="com.example.orangestooranges.PassPlay"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_pass_play" >
         </activity>
         <activity
             android:name="com.example.orangestooranges.SplashScreen"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_splash_screen" >
         </activity>
 		
         <activity
             android:name="com.example.orangestooranges.Instructions"
+            android:screenOrientation="portrait"
             android:label="@string/Instructions" >
         </activity>
 

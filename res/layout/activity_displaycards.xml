@@ -4,12 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 	android:id="@+id/cardsLayout" >
-	<LinearLayout
-        android:baselineAligned="false"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
 		<RelativeLayout 
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
@@ -19,7 +13,7 @@
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
 		        android:text=""
-		        android:gravity="center_horizontal"
+		        android:gravity="center"
 		        android:background="@color/lightBlue"
 		        android:textStyle="bold"
 		        android:textSize="20sp"
@@ -38,5 +32,4 @@
 		        android:gravity="center"
 		      />
 		</RelativeLayout>
-	</LinearLayout>
 </LinearLayout>

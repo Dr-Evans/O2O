@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
 public class JudgeScreen extends Activity implements OnClickListener {
@@ -36,7 +37,10 @@ public class JudgeScreen extends Activity implements OnClickListener {
 		//dynamically print out cards as text views
 		//Copied from DisplayCards
 			int numCards = match.getNumPlayers();
-			Button[] cards = new Button[numCards];
+			LayoutParams p = new LayoutParams(
+	                android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+	                android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
+		    p.setMargins(0,20,0,0);
 			Button temp; 
 			LinearLayout cardsLayout = (LinearLayout) findViewById(R.id.judge);
 			for (int i = 0; i < numCards; i++) {
@@ -45,12 +49,13 @@ public class JudgeScreen extends Activity implements OnClickListener {
 				    temp.setBackgroundResource(R.drawable.button_menu_orange);
 				    temp.setOnClickListener(this);
 				    temp.setText("Player " + (i+1) + ": " + match.getPlayer(i).getOrangePlayed().getCtopic());
-				    cardsLayout.addView(temp);
-				    temp.setId(i);
-				    cards[i] = temp;
+				    temp.setId(i);				    
+				    cardsLayout.addView(temp,p);
 				}
 			}
 		/*
+		 * This code should not be needed... setOrangePlayed should already do this, but I'll leave it in case
+		 * 
 		for(int i = 0; i < match.getNumPlayers(); i++)
 		{
 			if(!match.getPlayer(i).getJudge())
@@ -65,19 +70,6 @@ public class JudgeScreen extends Activity implements OnClickListener {
 			if(match.inPlay.get(i) != null)
 				match.inPlay.set(i, null);
 		}
-		/*
-		/*
-		Button temp; 
-		RelativeLayout judge = (RelativeLayout) findViewById(R.id.judge);
-		for (int i = 0; i < numCards; i++) {
-		    temp = new Button(this);
-		    temp.setBackgroundResource(R.drawable.button_menu_orange);
-		    temp.setText("Player "+ (i+1) + ": " + match.getPlayer(i).getOrangePlayed().getCtopic());
-		    judge.addView(temp);
-		    temp.setOnClickListener(this);
-		    cards[i] = temp;
-		}
-		*/
 			
 		//Timer Here
 	     t.scheduleAtFixedRate(new TimerTask(){
@@ -142,60 +134,14 @@ public class JudgeScreen extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		// On Clicking button for selection
-		//AKA 'locking in'
-		/*Button b1 = (Button) findViewById(R.id.O1);
-	    Button b2 = (Button) findViewById(R.id.O2);
-	    Button b3 = (Button) findViewById(R.id.O3);
-	    Button b4 = (Button) findViewById(R.id.O4);
-	    Button b5 = (Button) findViewById(R.id.O5);
-	    
-		b1.setEnabled(false);
-		b2.setEnabled(false);
-		b3.setEnabled(false);
-		b4.setEnabled(false);
-		b5.setEnabled(false);
-		TextView t = (TextView) findViewById(R.id.choice);
-		switch(v.getId()){
-        	case R.id.O1:
-        		t.setText("You have picked "+b1.getText());
-        		if(b1.getText() != "")
-        		{
-        			match.players.get(0).updatePoints(match.roundBlue);
-        			break;
-        		}
-        	case R.id.O2:
-        		t.setText("You have picked "+b2.getText());
-        		if(b2.getText() != "")
-        		{
-        			match.players.get(1).updatePoints(match.roundBlue);
-        			break;
-        		}
-        	case R.id.O3:
-        		t.setText("You have picked "+b3.getText());
-        		
-        		if(b3.getText() != "")
-        		{
-        			match.players.get(2).updatePoints(match.roundBlue);
-        			break;
-        		}
-        	case R.id.O4:
-        		t.setText("You have picked "+b4.getText());
-        		if(b4.getText() != "")
-        		{
-        			match.players.get(3).updatePoints(match.roundBlue);
-        			break;
-        		}
-        	case R.id.O5:
-        		t.setText("You have picked "+b5.getText());
-        		if(b5.getText() != "")
-        		{
-        			match.players.get(4).updatePoints(match.roundBlue);
-        			break;
-        		}
-		}*/
-		LinearLayout cardsLayout = (LinearLayout) findViewById(R.id.judge);
-		cardsLayout.setEnabled(false);
+		Button temp;
+		for(int i = 0; i < match.getNumPlayers(); i++) {
+			if(!match.players.get(i).getJudge()) {
+				temp = (Button) findViewById(i);
+				temp.setEnabled(false);
+			}
+		}
+		
 		int id = v.getId();
 		Button b = (Button) findViewById(id);
 		TextView t = (TextView) findViewById(R.id.choice);
