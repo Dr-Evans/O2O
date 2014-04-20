@@ -1,11 +1,11 @@
 package com.example.orangestooranges;
 
-import java.util.Stack;
-
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.app.Activity;
-import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -86,7 +86,28 @@ public class SplashScreen extends Activity {
 	
 	@Override
 	public void onBackPressed() {
-		//This will make it so you cannot press the back button in Pass Play
+		//This will override the back button
+		//Prompts the user if they want to end the game
+
+		new AlertDialog.Builder(this)
+	    .setTitle("End Game")
+	    .setMessage("Are you sure you want to end the game?")
+	    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+	        public void onClick(DialogInterface dialog, int which) { 
+	        	//Brings the user back to main menu
+	        	startActivity(new Intent(SplashScreen.this, MainActivity.class));
+	        	
+	        	//Ends pass splash screen activity
+	        	SplashScreen.super.finish();
+	        }
+	     })
+	    .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+	        public void onClick(DialogInterface dialog, int which) { 
+	            // Resume game
+	        }
+	     })
+	    .setIcon(android.R.drawable.ic_dialog_alert)
+	     .show();
 	}
 
 }

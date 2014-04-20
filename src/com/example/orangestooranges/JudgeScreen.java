@@ -1,23 +1,18 @@
 package com.example.orangestooranges;
 
-import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.os.Build;
 
 public class JudgeScreen extends Activity implements OnClickListener {
 	
@@ -25,6 +20,7 @@ public class JudgeScreen extends Activity implements OnClickListener {
 	int seconds = 10;
 	public int minutes = 10;//Minutes not used
 	Match match;
+	boolean timerPause = false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -88,51 +84,53 @@ public class JudgeScreen extends Activity implements OnClickListener {
 	        		runOnUiThread(new Runnable(){
 	        			@Override
 	        			public void run(){
-	        				TextView tv = (TextView) findViewById(R.id.timer);
-	        				if(seconds > 5){
-	        					tv.setText(String.valueOf(seconds-5));
-	        					seconds--;
-	        				}
-	        				else if(seconds <= 5 && seconds > 0){
-	        					tv.setText("Time is UP!");
-	        					seconds--;
-	        				} else if(seconds == 0) {
-	        						        					
-        						for(int i = 0; i < match.getNumPlayers(); i++)
-        						{
-        							if(match.players.get(i).getJudge() && i == 0)
-        							{
-        								match.players.get(i).unmakeJudge();
-        								match.players.get(match.getNumPlayers()-1).makeJudge();
-        								break;
-        								
-        							}
-        							else if(match.players.get(i).getJudge())
-        							{
-        								match.players.get(i).unmakeJudge();
-        								match.players.get(i-1).makeJudge();
-        								break;
-        							}        							
-        						}
-        						Intent nextRound = new Intent();
-        						for(int i = 0; i < match.getNumPlayers(); i++)
-        						{
-        							if(match.players.get(i).getPoints() == match.maxScore)
-        							{
-        								nextRound = new Intent(JudgeScreen.this, PlayGameMenu.class);
-        								break;
-        							}
-        							else
-        								nextRound = new Intent(JudgeScreen.this, SplashScreen.class);
-        						}
-        						
-        						match.setRoundBlue(match.blueStack.pop());
-	        					
-	        					nextRound.putExtra("matchData", (Parcelable) match);
-	        					t.cancel();
-	        					t.purge();
-	        					startActivity(nextRound);
-	        				}
+	        				if (!timerPause){
+		        				TextView tv = (TextView) findViewById(R.id.timer);
+		        				if(seconds > 5){
+		        					tv.setText(String.valueOf(seconds-5));
+		        					seconds--;
+		        				}
+		        				else if(seconds <= 5 && seconds > 0){
+		        					tv.setText("Time is UP!");
+		        					seconds--;
+		        				} else if(seconds == 0) {
+		        						        					
+	        						for(int i = 0; i < match.getNumPlayers(); i++)
+	        						{
+	        							if(match.players.get(i).getJudge() && i == 0)
+	        							{
+	        								match.players.get(i).unmakeJudge();
+	        								match.players.get(match.getNumPlayers()-1).makeJudge();
+	        								break;
+	        								
+	        							}
+	        							else if(match.players.get(i).getJudge())
+	        							{
+	        								match.players.get(i).unmakeJudge();
+	        								match.players.get(i-1).makeJudge();
+	        								break;
+	        							}        							
+	        						}
+	        						Intent nextRound = new Intent();
+	        						for(int i = 0; i < match.getNumPlayers(); i++)
+	        						{
+	        							if(match.players.get(i).getPoints() == match.maxScore)
+	        							{
+	        								nextRound = new Intent(JudgeScreen.this, PlayGameMenu.class);
+	        								break;
+	        							}
+	        							else
+	        								nextRound = new Intent(JudgeScreen.this, SplashScreen.class);
+	        						}
+	        						
+	        						match.setRoundBlue(match.blueStack.pop());
+		        					
+		        					nextRound.putExtra("matchData", (Parcelable) match);
+		        					t.cancel();
+		        					t.purge();
+		        					startActivity(nextRound);
+		        				}
+		        			}
 	        			}
 	        		});
 	        	}
@@ -210,7 +208,34 @@ public class JudgeScreen extends Activity implements OnClickListener {
 
 	@Override
 	public void onBackPressed() {
-		//cant press back button in judge screen
+		//This will override the back button
+		//Prompts the user if they want to end the game
+		
+		//Pause the timer
+		timerPause = true;
+	
+		new AlertDialog.Builder(this)
+	    .setTitle("End Game")
+	    .setMessage("Are you sure you want to end the game?")
+	    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+	        public void onClick(DialogInterface dialog, int which) { 
+	        	//Brings the user back to main menu
+	        	startActivity(new Intent(JudgeScreen.this, MainActivity.class));
+	        	
+	        	//Kills the timer - for some reason you HAVE to this as the finish() will not take care of this
+	        	t.cancel();
+	        	
+	        	//Ends pass play activity
+	        	JudgeScreen.super.finish();
+	        }
+	     })
+	    .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+	        public void onClick(DialogInterface dialog, int which) { 
+	            // Resume game
+	        	timerPause = false;
+	        }
+	     })
+	    .setIcon(android.R.drawable.ic_dialog_alert)
+	     .show();
 	}
-
 }

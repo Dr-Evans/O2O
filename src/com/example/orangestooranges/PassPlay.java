@@ -1,15 +1,16 @@
 package com.example.orangestooranges;
 
-import java.util.Stack;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import android.os.Bundle;
-import android.os.Parcelable;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +24,8 @@ public class PassPlay extends Activity {
 	Match match;
 	Player currPlayer;
 	int playerIndex;
+	boolean timerPause = false;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -65,48 +68,50 @@ public class PassPlay extends Activity {
         		runOnUiThread(new Runnable(){
         			@Override
         			public void run(){
-        				TextView tv = (TextView) findViewById(R.id.timer);
-        				if(seconds > 20){//Provide buffer period
-        					tv.setTextColor(Color.GREEN);
-        					tv.setText("...");
-        					seconds = seconds-1;
-        				}
-        				else if(seconds > 5){
-        					if(seconds == 20) {
-        						tv.setTextColor(Color.BLACK);
-        					}
-        					tv.setText(String.valueOf(seconds-5));
-        					seconds = seconds - 1;
-        					if(seconds == 9) {
-        						tv.setTextColor(Color.RED);
-        					}
-        				}
-        				else if(seconds <= 5 && seconds > 0){
-        					tv.setText("...");
-        					if(seconds == 5) {
-        						for(int i = 0; i < 7; i++) {
-	        						String buttonID = "card" + (i+1);
-	        						int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
-	        						Button cardButton = (Button)findViewById(resID);
-	        						cardButton.setEnabled(false);
-        						}
-        						if(currPlayer.getOrangePlayed() == null && cardPreviewing != -1) {
-        							currPlayer.setOrangePlayed(cardPreviewing);
-        							match.setInPlay(currPlayer.getOrange(cardPreviewing), playerIndex);
-        						} else if(currPlayer.getOrangePlayed() == null && cardPreviewing == -1) {
-        							match.setInPlay(currPlayer.selectRand(), playerIndex);
-        						}
-        					} 
-        					Button lockButton = (Button)findViewById(R.id.lockCard);
-        					lockButton.setEnabled(false);
-        					seconds = seconds - 1;
-        				} else if(seconds == 0) {
-        					//should move to display cards
-        					Intent next = new Intent(PassPlay.this, SplashScreen.class);
-        					next.putExtra("matchData", (Parcelable) match);
-        					t.cancel();
-        					t.purge();
-        					startActivity(next);
+        				if (!timerPause){
+	        				TextView tv = (TextView) findViewById(R.id.timer);
+	        				if(seconds > 20){//Provide buffer period
+	        					tv.setTextColor(Color.GREEN);
+	        					tv.setText("...");
+	        					seconds = seconds-1;
+	        				}
+	        				else if(seconds > 5){
+	        					if(seconds == 20) {
+	        						tv.setTextColor(Color.BLACK);
+	        					}
+	        					tv.setText(String.valueOf(seconds-5));
+	        					seconds = seconds - 1;
+	        					if(seconds == 9) {
+	        						tv.setTextColor(Color.RED);
+	        					}
+	        				}
+	        				else if(seconds <= 5 && seconds > 0){
+	        					tv.setText("...");
+	        					if(seconds == 5) {
+	        						for(int i = 0; i < 7; i++) {
+		        						String buttonID = "card" + (i+1);
+		        						int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
+		        						Button cardButton = (Button)findViewById(resID);
+		        						cardButton.setEnabled(false);
+	        						}
+	        						if(currPlayer.getOrangePlayed() == null && cardPreviewing != -1) {
+	        							currPlayer.setOrangePlayed(cardPreviewing);
+	        							match.setInPlay(currPlayer.getOrange(cardPreviewing), playerIndex);
+	        						} else if(currPlayer.getOrangePlayed() == null && cardPreviewing == -1) {
+	        							match.setInPlay(currPlayer.selectRand(), playerIndex);
+	        						}
+	        					} 
+	        					Button lockButton = (Button)findViewById(R.id.lockCard);
+	        					lockButton.setEnabled(false);
+	        					seconds = seconds - 1;
+	        				} else if(seconds == 0) {
+	        					//should move to display cards
+	        					Intent next = new Intent(PassPlay.this, SplashScreen.class);
+	        					next.putExtra("matchData", (Parcelable) match);
+	        					t.cancel();
+	        					t.purge();
+	        					startActivity(next);
+	        				}
         				}
         			}
         		});
@@ -154,7 +159,35 @@ public class PassPlay extends Activity {
 	
 	@Override
 	public void onBackPressed() {
-		//This will make it so you cannot press the back button in Pass Play
+		//This will override the back button
+		//Prompts the user if they want to end the game
+		
+		//Pause the timer
+		timerPause = true;
+	
+		new AlertDialog.Builder(this)
+	    .setTitle("End Game")
+	    .setMessage("Are you sure you want to end the game?")
+	    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+	        public void onClick(DialogInterface dialog, int which) { 
+	        	//Brings the user back to main menu
+	        	startActivity(new Intent(PassPlay.this, MainActivity.class));
+	        	
+	        	//Kills the timer - for some reason you HAVE to this as the finish() will not take care of this
+	        	t.cancel();
+	        	
+	        	//Ends pass play activity
+	        	PassPlay.super.finish();
+	        }
+	     })
+	    .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+	        public void onClick(DialogInterface dialog, int which) { 
+	            // Resume game
+	        	timerPause = false;
+	        }
+	     })
+	    .setIcon(android.R.drawable.ic_dialog_alert)
+	     .show();
 	}
 
 }

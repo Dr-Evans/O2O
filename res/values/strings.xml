@@ -41,6 +41,9 @@
     <string name="Step4">The player who\'s orange gets chosen, wins the round and gets a point. The player who has the most points wins the game.</string>
     <string name="Instructions">Instructions</string>
     <string name="title_activity_pass_play">PassPlay</string>
+    <string name="yes">Yes</string>
+    <string name="cancel">Cancel</string>
+    <string name="dialog_exit">Are you sure you would like to end the game?</string>
     <string name="title_activity_splash_screen">SplashScreen</string>
 
 </resources>
