@@ -202,7 +202,25 @@ public class JudgeScreen extends Activity implements OnClickListener {
 		t.setText("You have picked " + b.getText());
 		match.players.get(id).updatePoints(match.roundBlue);
 	}
-
+	
+	@Override
+	public void onPause() {
+		//Call onPause() of super
+		super.onPause();
+		
+		//Pause the timer
+		timerPause = true;
+	}
+	
+	@Override
+	public void onResume() {
+		//Call onPause() of super
+		super.onResume();
+		
+		//Resume the timer
+		timerPause = false;
+	}
+	
 	@Override
 	public void onBackPressed() {
 		//This will override the back button
@@ -214,7 +232,7 @@ public class JudgeScreen extends Activity implements OnClickListener {
 		new AlertDialog.Builder(this)
 	    .setTitle("End Game")
 	    .setMessage("Are you sure you want to end the game?")
-	    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+	    .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
 	        public void onClick(DialogInterface dialog, int which) { 
 	        	//Brings the user back to main menu
 	        	startActivity(new Intent(JudgeScreen.this, MainActivity.class));
@@ -226,7 +244,7 @@ public class JudgeScreen extends Activity implements OnClickListener {
 	        	JudgeScreen.super.finish();
 	        }
 	     })
-	    .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+	    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
 	        public void onClick(DialogInterface dialog, int which) { 
 	            // Resume game
 	        	timerPause = false;

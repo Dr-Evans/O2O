@@ -159,6 +159,24 @@ public class PassPlay extends Activity {
 	}
 	
 	@Override
+	public void onPause() {
+		//Call onPause() of super
+		super.onPause();
+		
+		//Pause the timer
+		timerPause = true;
+	}
+	
+	@Override
+	public void onResume() {
+		//Call onPause() of super
+		super.onResume();
+		
+		//Resume the timer
+		timerPause = false;
+	}
+	
+	@Override
 	public void onBackPressed() {
 		//This will override the back button
 		//Prompts the user if they want to end the game
@@ -169,7 +187,7 @@ public class PassPlay extends Activity {
 		new AlertDialog.Builder(this)
 	    .setTitle("End Game")
 	    .setMessage("Are you sure you want to end the game?")
-	    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+	    .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
 	        public void onClick(DialogInterface dialog, int which) { 
 	        	//Brings the user back to main menu
 	        	startActivity(new Intent(PassPlay.this, MainActivity.class));
@@ -181,7 +199,7 @@ public class PassPlay extends Activity {
 	        	PassPlay.super.finish();
 	        }
 	     })
-	    .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+	    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
 	        public void onClick(DialogInterface dialog, int which) { 
 	            // Resume game
 	        	timerPause = false;
