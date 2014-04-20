@@ -35,20 +35,20 @@ public class MainActivity extends Activity implements OnClickListener {
     	        	startActivity(login);
     	        	// Closing dashboard screen
     	        	finish();
-    	        	
-    	        	Button mainPlay = (Button)findViewById(R.id.mainPlayButton);
-    	    		mainPlay.setOnClickListener(this);
-    	    		Button mainSettings = (Button)findViewById(R.id.mainSettingsButton);
-    	    		mainSettings.setOnClickListener(this);
-    	    		Button mainFriends = (Button)findViewById(R.id.mainFriendsButton);
-    	    		mainFriends.setOnClickListener(this);
-    	    		Button mainCreate = (Button)findViewById(R.id.mainPassPlayButton);
-    	    		mainCreate.setOnClickListener(this);
-    	    		Button mainStats = (Button)findViewById(R.id.mainStatsButton);
-    	    		mainStats.setOnClickListener(this);
-    	    		ImageButton mainInstructions = (ImageButton)findViewById(R.id.imageButtonInstructions);
-    	    		mainInstructions.setOnClickListener(this);		}
+    			}
     		});
+        	Button mainPlay = (Button)findViewById(R.id.mainPlayButton);
+    		mainPlay.setOnClickListener(this);
+    		Button mainSettings = (Button)findViewById(R.id.mainSettingsButton);
+    		mainSettings.setOnClickListener(this);
+    		Button mainFriends = (Button)findViewById(R.id.mainFriendsButton);
+    		mainFriends.setOnClickListener(this);
+    		Button mainCreate = (Button)findViewById(R.id.mainPassPlayButton);
+    		mainCreate.setOnClickListener(this);
+    		Button mainStats = (Button)findViewById(R.id.mainStatsButton);
+    		mainStats.setOnClickListener(this);
+    		ImageButton mainInstructions = (ImageButton)findViewById(R.id.imageButtonInstructions);
+    		mainInstructions.setOnClickListener(this);		
         	
         }
         else{

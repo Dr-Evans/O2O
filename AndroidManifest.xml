@@ -80,22 +80,10 @@
             android:screenOrientation="portrait"
             android:label="@string/Instructions" >
         </activity>
-        <activity
-            android:name="com.example.orangestooranges.MainLogin"
-            android:screenOrientation="portrait"
-            android:label="@string/MainLogin"
-             >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            
-        </activity>
-        <activity android:name="com.facebook.LoginActivity"
-                  android:theme="@android:style/Theme.Translucent.NoTitleBar"
-                  android:label="@string/app_name" />
-        <activity
+            <activity android:name="com.facebook.LoginActivity"
+                android:theme="@android:style/Theme.Translucent.NoTitleBar"
+                android:label="@string/app_name" />
+      <activity
             android:name="com.example.orangestooranges.RegisterActivity"
             android:screenOrientation="portrait"
             android:label="Register"
