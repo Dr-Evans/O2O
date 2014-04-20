@@ -25,6 +25,7 @@
     <string name="confirm_email">Confirm Email</string>
     <string name="pickOrange">Pick an Orange below that you think best matches the Blue!</string>
     <string name="splash">Splash Screen</string>
+    <string name="MainLogin">Login</string>
 
     <color name="orange">#FF8B00</color>
     <color name="lightBlue">#997373D9</color>
@@ -45,5 +46,6 @@
     <string name="cancel">Cancel</string>
     <string name="dialog_exit">Are you sure you would like to end the game?</string>
     <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="app_id">1412006192384300</string>
 
 </resources>
