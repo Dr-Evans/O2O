@@ -82,8 +82,7 @@ public class PassPlay extends Activity {
         						tv.setTextColor(Color.RED);
         					}
         				}
-        				else if(seconds <= 5 && seconds > 0){
-        					
+        				else if(seconds <= 5 && seconds > 0){        					
         					if(seconds == 5) {
         						tv.setText("...");	
         						for(int i = 0; i < 7; i++) {
