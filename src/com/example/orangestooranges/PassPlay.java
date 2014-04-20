@@ -156,7 +156,7 @@ public class PassPlay extends Activity {
 	
 	@Override
 	public void onBackPressed() {
-		//cant press back button in play game
+		//This will make it so you cannot press the back button in Pass Play
 	}
 
 }
