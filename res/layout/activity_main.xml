@@ -19,7 +19,7 @@
     <TextView
         android:id="@+id/mainTextView1"
         android:layout_width="fill_parent"
-        android:layout_height="128dp"
+        android:layout_height="50dp"
         android:gravity="center"
         android:layout_marginBottom="50dp"
         android:text="@string/username"
@@ -110,12 +110,18 @@
     </LinearLayout>
     <Button android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Logout Me"
-        android:textSize="20dip"
-        android:textColor="#21dbd4"
+        android:text="@+string/logout"
+        android:textSize="20sp"
+        android:textColor="@+color/orange"
         android:textStyle="bold" 
         android:id="@+id/btnLogout"
         android:layout_marginTop="80dip"
         android:background="@null"/>
+    <com.facebook.widget.LoginButton
+	        android:id="@+id/authButton"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_horizontal"
+	        android:layout_marginBottom="15dp"/>
 
 </LinearLayout>

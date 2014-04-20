@@ -2,8 +2,10 @@ package com.example.orangestooranges;
 
 import library.MySQLDatabaseHandler;
 import library.UserFunctions;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
 import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.UiLifecycleHelper;
@@ -115,6 +118,8 @@ public class LoginFragment extends Fragment {
 	private void onSessionStateChange(Session session, SessionState state, Exception exception) {
 	    if (state.isOpened()) {
 	        Log.i(TAG, "Logged in...");
+	        Intent main = new Intent(getActivity(), MainActivity.class);
+        	startActivity(main);
 	    } else if (state.isClosed()) {
 	        Log.i(TAG, "Logged out...");
 	    }

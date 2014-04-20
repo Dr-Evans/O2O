@@ -6,7 +6,7 @@
     <string name="hello_world">Hello\nWorld!</string>
     <string name="stats">Stats</string>
     <string name="playGame">Play\nGame</string>
-    <string name="passPlay">Pass\nPlay</string>
+    <string name="passPlay">Pass\n\'n\' Play</string>
     <string name="friendList">Friend\nList</string>
     <string name="accountSettings">Account\nSettings</string>
     <string name="button5">Login</string>
@@ -26,6 +26,8 @@
     <string name="pickOrange">Pick an Orange below that you think best matches the Blue!</string>
     <string name="splash">Splash Screen</string>
     <string name="MainLogin">Login</string>
+    <string name="logout">Logout</string>
+    <string name="register">No Account? Register!</string>
 
     <color name="orange">#FF8B00</color>
     <color name="lightBlue">#997373D9</color>

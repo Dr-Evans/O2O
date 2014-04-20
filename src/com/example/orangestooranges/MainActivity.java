@@ -1,7 +1,9 @@
 package com.example.orangestooranges;
 
-import library.UserFunctions;
+import com.facebook.Session;
+import com.facebook.widget.LoginButton;
 
+import library.UserFunctions;
 import android.app.Activity;
 import android.view.View.OnClickListener;
 import android.content.Intent;
@@ -15,28 +17,45 @@ import android.widget.ImageButton;
 public class MainActivity extends Activity implements OnClickListener {
 	UserFunctions userFunctions;
 	Button btnLogout;
+	Session session = Session.getActiveSession();
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		userFunctions = new UserFunctions();
-        if(userFunctions.isUserLoggedIn(getApplicationContext())){
+        if((userFunctions.isUserLoggedIn(getApplicationContext())) || (session != null && session.isOpened())){
         	setContentView(R.layout.activity_main);
         	btnLogout = (Button) findViewById(R.id.btnLogout);
+        	if(userFunctions.isUserLoggedIn(getApplicationContext())) {
+        		LoginButton loginbutton = (LoginButton) findViewById(R.id.authButton);
+        		loginbutton.setVisibility(View.INVISIBLE);
+            	btnLogout.setOnClickListener(new View.OnClickListener() {
+        			public void onClick(View arg0) {
+        				// TODO Auto-generated method stub
+        				userFunctions.logoutUser(getApplicationContext());
+        				
+        				Intent login = new Intent(getApplicationContext(), LoginActivity.class);
+        	        	login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        	        	startActivity(login);
+        	        	// Closing dashboard screen
+        	        	finish();
+        			}
+        		});
+        	} else {
+        		btnLogout.setVisibility(View.INVISIBLE);
+        		LoginButton loginbutton = (LoginButton) findViewById(R.id.authButton);
+        		loginbutton.setOnClickListener(new View.OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						session.closeAndClearTokenInformation();
+						Intent intent = new Intent(getApplicationContext(), LoginActivity.class);	
+						startActivity(intent);
+					}
+				});
+        	}
         	
-        	btnLogout.setOnClickListener(new View.OnClickListener() {
-    			
-    			public void onClick(View arg0) {
-    				// TODO Auto-generated method stub
-    				userFunctions.logoutUser(getApplicationContext());
-    				Intent login = new Intent(getApplicationContext(), LoginActivity.class);
-    	        	login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-    	        	startActivity(login);
-    	        	// Closing dashboard screen
-    	        	finish();
-    			}
-    		});
         	Button mainPlay = (Button)findViewById(R.id.mainPlayButton);
     		mainPlay.setOnClickListener(this);
     		Button mainSettings = (Button)findViewById(R.id.mainSettingsButton);
