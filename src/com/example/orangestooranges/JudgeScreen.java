@@ -12,6 +12,7 @@ import android.os.Parcelable;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class JudgeScreen extends Activity implements OnClickListener {
@@ -34,21 +35,22 @@ public class JudgeScreen extends Activity implements OnClickListener {
 				
 		//dynamically print out cards as text views
 		//Copied from DisplayCards
-		int numCards = match.getNumPlayers();
-		Button[] cards = new Button[numCards];
-		for(int i = 0; i < numCards; i++)
-		{
-			if(i == 0)
-				cards[i] = (Button) findViewById(R.id.O1);
-			if(i == 1)
-				cards[i] = (Button) findViewById(R.id.O2);
-			if(i == 2)
-				cards[i] = (Button) findViewById(R.id.O3);
-			if(i == 3)
-				cards[i] = (Button) findViewById(R.id.O4);
-			if(i == 4)
-				cards[i] = (Button) findViewById(R.id.O5);
-		}
+			int numCards = match.getNumPlayers();
+			Button[] cards = new Button[numCards];
+			Button temp; 
+			LinearLayout cardsLayout = (LinearLayout) findViewById(R.id.judge);
+			for (int i = 0; i < numCards; i++) {
+				if(!match.players.get(i).getJudge()) {
+					temp = new Button(this);
+				    temp.setBackgroundResource(R.drawable.button_menu_orange);
+				    temp.setOnClickListener(this);
+				    temp.setText("Player " + (i+1) + ": " + match.getPlayer(i).getOrangePlayed().getCtopic());
+				    cardsLayout.addView(temp);
+				    temp.setId(i);
+				    cards[i] = temp;
+				}
+			}
+		/*
 		for(int i = 0; i < match.getNumPlayers(); i++)
 		{
 			if(!match.getPlayer(i).getJudge())
@@ -57,13 +59,13 @@ public class JudgeScreen extends Activity implements OnClickListener {
 				CardOrange rem = match.getPlayer(i).getOrangePlayed();
 				match.getPlayer(i).removeOrange(rem);
 			}
-		}
+		}*/
 		for(int i = 0; i < numCards; i++)
 		{
 			if(match.inPlay.get(i) != null)
 				match.inPlay.set(i, null);
 		}
-		
+		/*
 		/*
 		Button temp; 
 		RelativeLayout judge = (RelativeLayout) findViewById(R.id.judge);
@@ -135,26 +137,14 @@ public class JudgeScreen extends Activity implements OnClickListener {
 	        		});
 	        	}
 	        }, 0, 1000);
-	     
-	     //Manually initialize the buttons
-	     //Delete this later
-	     /*Button b1 = (Button) findViewById(R.id.O1);
-	     Button b2 = (Button) findViewById(R.id.O2);
-	     Button b3 = (Button) findViewById(R.id.O3);
-	     Button b4 = (Button) findViewById(R.id.O4);
-	     Button b5 = (Button) findViewById(R.id.O5);
-	     b1.setText("Test1");
-	     b2.setText("Test2");
-	     b3.setText("Test3");
-	     b4.setText("Test4");
-	     b5.setText("Test5");*/
+	    
 	}
 
 	@Override
 	public void onClick(View v) {
 		// On Clicking button for selection
 		//AKA 'locking in'
-		Button b1 = (Button) findViewById(R.id.O1);
+		/*Button b1 = (Button) findViewById(R.id.O1);
 	    Button b2 = (Button) findViewById(R.id.O2);
 	    Button b3 = (Button) findViewById(R.id.O3);
 	    Button b4 = (Button) findViewById(R.id.O4);
@@ -203,7 +193,14 @@ public class JudgeScreen extends Activity implements OnClickListener {
         			match.players.get(4).updatePoints(match.roundBlue);
         			break;
         		}
-		}	
+		}*/
+		LinearLayout cardsLayout = (LinearLayout) findViewById(R.id.judge);
+		cardsLayout.setEnabled(false);
+		int id = v.getId();
+		Button b = (Button) findViewById(id);
+		TextView t = (TextView) findViewById(R.id.choice);
+		t.setText("You have picked " + b.getText());
+		match.players.get(id).updatePoints(match.roundBlue);
 	}
 
 	@Override

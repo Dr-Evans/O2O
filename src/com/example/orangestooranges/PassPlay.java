@@ -44,6 +44,7 @@ public class PassPlay extends Activity {
 			{
 				match.dealOranges(match.players.get(i));
 				currPlayer = match.players.get(i);
+				currPlayer.setCardOrangePlayed(null);
 				playerIndex = i;
 				s = "Player " + (i+1) + "'s turn.";
 				break;
