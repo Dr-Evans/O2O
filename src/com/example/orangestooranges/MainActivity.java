@@ -33,6 +33,8 @@ public class MainActivity extends Activity implements OnClickListener {
         	setContentView(R.layout.activity_main);
         	btnLogout = (Button) findViewById(R.id.btnLogout);
         	if(userFunctions.isUserLoggedIn(getApplicationContext())) {
+        		username = (TextView) findViewById(R.id.username);
+        		username.setText(userFunctions.getUsername(getApplicationContext()));
         		LoginButton loginbutton = (LoginButton) findViewById(R.id.authButton);
         		loginbutton.setVisibility(View.INVISIBLE);
             	btnLogout.setOnClickListener(new View.OnClickListener() {

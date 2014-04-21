@@ -119,5 +119,16 @@ public class MySQLDatabaseHandler extends SQLiteOpenHelper {
         db.delete(TABLE_LOGIN, null, null);
         db.close();
     }
+    
+    public String getUsername() {
+    	SQLiteDatabase db = this.getWritableDatabase();
+    	String usernameQuery = "SELECT name FROM " + TABLE_LOGIN;
+    	Cursor cursor = db.rawQuery(usernameQuery, null);
+    	cursor.moveToFirst();
+    	String username = cursor.getString(0);
+        db.close();
+        cursor.close();
+        return username;
+    }
  
 }
