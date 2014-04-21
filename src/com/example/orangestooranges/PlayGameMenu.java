@@ -25,8 +25,12 @@ public class PlayGameMenu extends Activity {
 		
 		Spinner dropdown = (Spinner)findViewById(R.id.playGameSpinner1);
 		String[] items = new String[]{"4", "5", "6"};
+		final Spinner numRounds = (Spinner) findViewById(R.id.numRoundSpinner);
+		String[] players = new String[] {"1", "2", "3", "4", "5", "6", "7"};
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, items);
 		dropdown.setAdapter(adapter);
+		ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, players);
+		numRounds.setAdapter(adapter2);
 		
 		Button play = (Button)findViewById(R.id.playGameButton1);
 		play.setOnClickListener(new View.OnClickListener(){
@@ -46,12 +50,15 @@ public class PlayGameMenu extends Activity {
 				Collections.shuffle(orangeStack);
 				Collections.shuffle(blueStack);
 				
-				Match match = new Match(4,2,1, blueStack, orangeStack);
+				String rounds = (String) numRounds.getSelectedItem();
+				int round = Integer.parseInt(rounds);
+				Match match = new Match(4, round ,1, blueStack, orangeStack);
 				match.setRoundBlue(blueStack.pop());
 				match.players.get(match.getNumPlayers()-1).makeJudge();
 				Intent next = new Intent(PlayGameMenu.this, SplashScreen.class);
 				next.putExtra("matchData", (Parcelable) match);
 				startActivity(next);
+
 			}
 		});
 	}

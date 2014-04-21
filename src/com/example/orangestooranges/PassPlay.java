@@ -19,7 +19,7 @@ import android.widget.TextView;
 public class PassPlay extends Activity {
 	
 	Timer t = new Timer();
-	int seconds = 10;
+	int seconds = 25;
 	int cardPreviewing = -1;
 	Match match;
 	Player currPlayer;
@@ -78,7 +78,7 @@ public class PassPlay extends Activity {
 	        				}
 	        				else if(seconds > 5){
 	        					if(seconds == 20) {
-	        						tv.setTextColor(Color.BLACK);
+	        						tv.setTextColor(Color.WHITE);
 	        					}
 	        					tv.setText(String.valueOf(seconds-5));
 	        					seconds = seconds - 1;

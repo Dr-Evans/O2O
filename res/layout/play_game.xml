@@ -26,6 +26,16 @@
         android:layout_marginTop="33dp"
         android:background="@android:drawable/btn_dropdown"
         android:spinnerMode="dropdown" />
+    
+    <Spinner
+        android:id="@+id/numRoundSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/playGameSpinner1"
+        android:layout_marginTop="33dp"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown" />
 
     <TextView
         android:id="@+id/playGameText2"
@@ -35,7 +45,7 @@
         android:layout_marginRight="14dp"
         android:layout_marginTop="20dp"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/playGameSpinner1"
+        android:layout_below="@+id/numRoundSpinner"
         android:text="How to play:\nPick an Orange from your hand and hope it gets picked!"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
