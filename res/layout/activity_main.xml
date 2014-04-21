@@ -1,127 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:gravity="center"
-    android:orientation="vertical" 
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#3b3b3b" 
+    android:orientation="vertical"
     >
-	
-     <ImageButton
-        android:id="@+id/imageButtonInstructions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="120dp"
-        android:contentDescription="@string/Instructions"
-       	android:background="@android:color/transparent"
-        android:src="@drawable/help" />
     
-    <TextView
-        android:id="@+id/mainTextView1"
+    <LinearLayout 
         android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:gravity="center"
-        android:layout_marginBottom="50dp"
-        android:text="@string/username"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-	<Button
-	    android:id="@+id/mainStatsButton"
-	    android:layout_width="130dp"
-	    android:layout_height="60dp"
-	    android:background="@drawable/button_menu_orange"
-	    android:gravity="center"
-	    android:layout_marginBottom="25dp"
-	    android:text="@string/stats"
-	    android:textStyle="bold" />
-	
-    <LinearLayout
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dip" >
+        
+        <Button
+            android:id="@+id/mainStatsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@null"
+            android:gravity="center"
+            android:text="Username"
+            android:textColor="@color/orange"
+            android:textSize="25sp"
+            android:textStyle="bold" 
+            android:singleLine="true"/>
+        
+        <LinearLayout
+	        android:orientation="horizontal"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:gravity="right" >
+		        
+	        <ImageButton
+	            android:id="@+id/imageButtonInstructions"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="right"
+	            android:background="@android:color/transparent"
+	            android:contentDescription="@string/Instructions"
+	            android:src="@drawable/help" />
+		</LinearLayout>
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         android:layout_weight="1"
-        android:orientation="horizontal" 
+        android:orientation="vertical" 
         >
 
         <Button
             android:id="@+id/mainPlayButton"
-            android:layout_width="130dp"
-            android:layout_height="match_parent"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/button_menu_orange"
             android:gravity="center"
+            android:drawableLeft="@drawable/help"
+            android:drawablePadding="8dip"
+            android:layout_marginBottom="10dp"
+            android:textSize="25sp"
             android:text="@string/playGame"
-            android:textStyle="bold" />
-
-		<TextView
-        	android:id="@+id/spacer1"
-        	android:layout_width="20dp"
-        	android:layout_height="match_parent" 
-        	/>
+            android:textStyle="bold" 
+            android:singleLine="true"/>
 
         <Button
             android:id="@+id/mainPassPlayButton"
-            android:layout_width="130dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/button_menu_orange"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_menu_blue"
             android:gravity="center"
+            android:drawableLeft="@drawable/help"
+            android:drawablePadding="8dip"
+            android:layout_marginBottom="10dp"
+            android:textSize="25sp"
             android:text="@string/passPlay"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/spacer2"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"  
-        />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:orientation="horizontal" 
-        >
+            android:textStyle="bold" 
+            android:singleLine="true"/>
 
         <Button
             android:id="@+id/mainFriendsButton"
-            android:layout_width="130dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/button_menu_blue"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_menu_orange"
             android:gravity="center"
+            android:drawableLeft="@drawable/help"
+            android:drawablePadding="8dip"
+            android:layout_marginBottom="10dp"
+            android:textSize="25sp"
             android:text="@string/friendList"
-            android:textStyle="bold" />
-
-        <TextView
-        	android:id="@+id/spacer3"
-        	android:layout_width="20dp"
-        	android:layout_height="match_parent" 
-        	/>
+            android:textStyle="bold" 
+            android:singleLine="true"/>
 
         <Button
             android:id="@+id/mainSettingsButton"
-            android:layout_width="130dp"
-            android:layout_height="match_parent"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/button_menu_blue"
             android:gravity="center"
+            android:drawableLeft="@drawable/help"
+            android:drawablePadding="8dip"
             android:text="@string/accountSettings"
-            android:textStyle="bold" />
-	
-    </LinearLayout>
-    <Button android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@+string/logout"
-        android:textSize="20sp"
-        android:textColor="@+color/orange"
-        android:textStyle="bold" 
-        android:id="@+id/btnLogout"
-        android:layout_marginTop="80dip"
-        android:background="@null"/>
-    <com.facebook.widget.LoginButton
+            android:textSize="25sp"
+            android:layout_marginBottom="10dp"
+            android:textStyle="bold" 
+            android:singleLine="true"/>
+        
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_menu_blue"
+            android:gravity="center"
+            android:drawableLeft="@drawable/help"
+            android:drawablePadding="8dip"
+            android:text="@string/logout"
+            android:textSize="15sp"
+            android:textStyle="bold" 
+            android:singleLine="true"/>
+        
+         <com.facebook.widget.LoginButton
 	        android:id="@+id/authButton"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_gravity="center_horizontal"
 	        android:layout_marginBottom="15dp"/>
 
+    </LinearLayout>
 </LinearLayout>
