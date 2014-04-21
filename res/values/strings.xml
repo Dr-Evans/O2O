@@ -28,6 +28,7 @@
     <string name="MainLogin">Login</string>
     <string name="logout">Logout</string>
     <string name="register">No Account? Register!</string>
+    <string name="alreadyRegistered">Already Registered? Login!</string>
 
     <color name="orange">#FF8B00</color>
     <color name="lightBlue">#997373D9</color>

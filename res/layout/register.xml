@@ -75,8 +75,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dip"
             android:background="@null"
-            android:text="Already registred. Login Me!"
-            android:textColor="#21dbd4"
+            android:text="@+string/alreadyRegistered"
+            android:textColor="@+color/orange"
             android:textStyle="bold" />
     </LinearLayout>
 
