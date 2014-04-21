@@ -49,7 +49,7 @@ public class JudgeScreen extends Activity implements OnClickListener {
 					temp = new Button(this);
 				    temp.setBackgroundResource(R.drawable.button_menu_orange);
 				    temp.setOnClickListener(this);
-				    temp.setText("Player " + (i+1) + ": " + match.getPlayer(i).getOrangePlayed().getCtopic());
+				    temp.setText(match.getPlayer(i).getOrangePlayed().getCtopic());
 				    temp.setId(i);				    
 				    cardsLayout.addView(temp,p);
 				}

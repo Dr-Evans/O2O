@@ -85,4 +85,9 @@ public class UserFunctions {
 		return true;
 	}
 	
+	public String getUsername(Context context) {
+		MySQLDatabaseHandler db = new MySQLDatabaseHandler(context);
+		return db.getUsername();		
+	}
+	
 }
