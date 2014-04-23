@@ -114,7 +114,7 @@ public class JudgeScreen extends Activity implements OnClickListener {
 	        						{
 	        							if(match.players.get(i).getPoints() == match.maxScore)
 	        							{
-	        								nextRound = new Intent(JudgeScreen.this, PlayGameMenu.class);
+	        								nextRound = new Intent(JudgeScreen.this, EndScreen.class);
 	        								break;
 	        							}
 	        							else

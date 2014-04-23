@@ -23,7 +23,7 @@ public class PlayGameMenu extends Activity {
 		 *  to be used when starting a game.
 		 */
 		
-		Spinner dropdown = (Spinner)findViewById(R.id.playGameSpinner1);
+		final Spinner dropdown = (Spinner)findViewById(R.id.playGameSpinner1);
 		String[] items = new String[]{"4", "5", "6"};
 		final Spinner numRounds = (Spinner) findViewById(R.id.numRoundSpinner);
 		String[] players = new String[] {"1", "2", "3", "4", "5", "6", "7"};
@@ -52,7 +52,9 @@ public class PlayGameMenu extends Activity {
 				
 				String rounds = (String) numRounds.getSelectedItem();
 				int round = Integer.parseInt(rounds);
-				Match match = new Match(4, round ,1, blueStack, orangeStack);
+				String players = (String) dropdown.getSelectedItem();
+				int playerCount = Integer.parseInt(players);
+				Match match = new Match(playerCount, round ,1, blueStack, orangeStack);
 				match.setRoundBlue(blueStack.pop());
 				match.players.get(match.getNumPlayers()-1).makeJudge();
 				Intent next = new Intent(PlayGameMenu.this, SplashScreen.class);

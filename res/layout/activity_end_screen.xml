@@ -2,34 +2,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:id="@+id/end">
 
-    <TextView
-        android:id="@+id/splashTextView"
-        android:layout_width="306dp"
-        android:layout_height="235dp"
-        android:layout_gravity="top|center_horizontal"
-        android:gravity="center"
-        android:text="@string/scoreBoard"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
-        android:id="@+id/splashButton"
+        android:id="@+id/playAgain"
         android:layout_width="150dp"
         android:layout_height="60dp"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/button_menu_orange"
         android:gravity="center"
+        android:onClick = "replay"
         android:text="@string/playAgain" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/toMenu"
         android:layout_width="150dp"
         android:layout_height="60dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
         android:background="@drawable/button_menu_blue"
         android:gravity="center"
+        android:onClick = "mainMenu"
         android:text="@string/mainMenu" />
 
 </LinearLayout>

@@ -145,5 +145,10 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 	    });
 	    request.executeAsync();
-	} 
+	}
+	
+	@Override
+	public void onBackPressed(){
+		//Do nothing
+	}
 }
