@@ -3,39 +3,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
-
-    <TextView
-        android:id="@+id/playGameText1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="33dp"
-        android:gravity="center"
-        android:text="@string/numPlayers"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="30sp" />
-
-    <Spinner
-        android:id="@+id/playGameSpinner1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/playGameText1"
-        android:layout_marginTop="33dp"
-        android:background="@android:drawable/btn_dropdown"
-        android:spinnerMode="dropdown" />
+	<LinearLayout 
+	    android:layout_width = "match_parent"
+	    android:layout_height = "wrap_content"
+	    android:orientation = "horizontal"
+	   	android:layout_marginTop="33dp"
+	    android:id="@+id/line1">
+	    
+	    <TextView
+	       android:id="@+id/playGameText1"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:text="@string/numPlayers"
+	       android:textAppearance="?android:attr/textAppearanceMedium"
+	       android:layout_weight = "1"
+	       android:textSize="30sp" />
+	
+	   <Spinner
+	       android:id="@+id/playGameSpinner1"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:background="@android:drawable/btn_dropdown"
+	       android:layout_weight="1"
+	       android:spinnerMode="dropdown" />
+	</LinearLayout>
     
-    <Spinner
-        android:id="@+id/numRoundSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/playGameSpinner1"
-        android:layout_marginTop="33dp"
-        android:background="@android:drawable/btn_dropdown"
-        android:spinnerMode="dropdown" />
+    <LinearLayout
+        android:layout_width = "match_parent"
+	    android:layout_height = "wrap_content"
+	    android:orientation = "horizontal"
+	   	android:layout_marginTop="33dp"
+	   	android:layout_below = "@+id/line1"
+	    android:id="@+id/line2">
+	   
+		   <TextView
+	       android:id="@+id/playGameText2"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:text="Rounds"
+	       android:textAppearance="?android:attr/textAppearanceMedium"
+	       android:layout_weight = "1"
+	       android:textSize="30sp" />
+	        <Spinner
+	        android:id="@+id/numRoundSpinner"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:background="@android:drawable/btn_dropdown"
+	        android:layout_weight = "1"
+	        android:spinnerMode="dropdown" />
+    </LinearLayout>
+    
 
     <TextView
         android:id="@+id/playGameText2"
@@ -45,7 +62,7 @@
         android:layout_marginRight="14dp"
         android:layout_marginTop="20dp"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/numRoundSpinner"
+        android:layout_below="@+id/line2"
         android:text="How to play:\nPick an Orange from your hand and hope it gets picked!"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 

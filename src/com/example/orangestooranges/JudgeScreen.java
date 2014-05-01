@@ -22,7 +22,7 @@ import android.widget.TextView;
 public class JudgeScreen extends Activity implements OnClickListener {
 	
 	Timer t = new Timer();
-	int seconds = 10;
+	int seconds = 60;
 	public int minutes = 10;//Minutes not used
 	Match match;
 	boolean timerPause = false;
