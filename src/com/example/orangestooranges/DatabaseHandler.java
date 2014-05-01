@@ -46,11 +46,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
          statement.execute();
          statement.clearBindings();
          statement.bindString(2, "A Bull Fight");
-         statement.bindString(3, " - Also known as  la fiesta brava  (the brave festival). A whole lot of bull..");
+         statement.bindString(3, " - Also known as 'la fiesta brava' (the brave festival). A whole lot of bull..");
          statement.execute();
          statement.clearBindings();
          statement.bindString(2, "A Car Crash");
-         statement.bindString(3, " -  Hey, it was an accident! ");
+         statement.bindString(3, " -  Hey, it was an accident!");
          statement.execute();
          statement.clearBindings();
          statement.bindString(2, "A Cheap Motel");
@@ -66,7 +66,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
          statement.execute();
          statement.clearBindings();
          statement.bindString(2, "A Flat Tire");
-         statement.bindString(3, " -  Whaddya mean, there's no spare? ");
+         statement.bindString(3, " -  Whaddya mean, there's no spare?");
          statement.execute();
          statement.clearBindings();
          statement.bindString(2, "A Full Moon");
@@ -78,7 +78,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
          statement.execute();
          statement.clearBindings();
          statement.bindString(2, "A High School Bathroom");
-         statement.bindString(3, " -  Fools rush in where angels fear to tread  -Alexander Pope");
+         statement.bindString(3, " - Fools rush in where angels fear to tread  -Alexander Pope");
          statement.execute();
          statement.clearBindings();
          statement.bindString(2, "A Honeymoon");
@@ -1673,7 +1673,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
          statement.bindString(3, " - 1958-, American popular singer, dancer, and songwriter. Welcome to Neverland.");
          statement.execute();
          statement.clearBindings();
-         statement.bindString(2, "Michael Jordon");
+         statement.bindString(2, "Michael Jordan");
          statement.bindString(3, " - 1963- , American professional basketball legend, led Chicago to six world championships. No bull.");
          statement.execute();
          statement.clearBindings();

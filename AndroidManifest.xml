@@ -37,6 +37,11 @@
             android:label="@string/app_name" >
         </activity>
         <activity
+            android:name="com.example.orangestooranges.FriendsList"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
             android:name="com.example.orangestooranges.PregameWaiting"
             android:screenOrientation="portrait"
             android:label="@string/app_name" >

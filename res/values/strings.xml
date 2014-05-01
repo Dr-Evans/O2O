@@ -5,8 +5,9 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello\nWorld!</string>
     <string name="stats">Stats</string>
-    <string name="playGame">Play\nGame</string>
-    <string name="passPlay">Pass\n\'n\' Play</string>
+    <string name="playGame">Play Online</string>
+    <string name="play">Play</string>
+    <string name="passPlay">Pass \'n\' Play</string>
     <string name="friendList">Friend\nList</string>
     <string name="accountSettings">Account\nSettings</string>
     <string name="button5">Login</string>

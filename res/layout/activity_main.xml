@@ -58,6 +58,7 @@
             android:gravity="center"
             android:drawableLeft="@drawable/creategame"
             android:drawablePadding="8dip"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:textSize="25sp"
             android:text="@string/playGame"
@@ -105,19 +106,25 @@
             android:layout_marginBottom="10dp"
             android:textStyle="bold" 
             android:singleLine="true"/>
-        
-        <Button
-            android:id="@+id/btnLogout"
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_menu_blue"
-            android:gravity="center"
-            android:drawableLeft="@drawable/logout"
-            android:drawablePadding="8dip"
-            android:text="@string/logout"
-            android:textSize="15sp"
-            android:textStyle="bold" 
-            android:singleLine="true"/>
+        <RelativeLayout 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+	        
+               <Button
+		            android:id="@+id/btnLogout"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:background="@drawable/button_menu_blue"
+		            android:drawableLeft="@drawable/logout"
+		            android:drawablePadding="10dp"
+		            android:text="@string/logout"
+		            android:layout_alignParentBottom="true"
+		            android:layout_alignParentRight="true"
+		            android:textSize="15sp"
+		            android:layout_marginRight="10dp"
+		            android:textStyle="bold" 
+		            android:singleLine="true"/>
+        </RelativeLayout>
         
          <com.facebook.widget.LoginButton
 	        android:id="@+id/authButton"

@@ -17,6 +17,9 @@
         android:id="@+id/splashButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/button_menu_orange"
+        android:textStyle="bold"
+        android:textSize="24sp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="@string/passPlay" />
