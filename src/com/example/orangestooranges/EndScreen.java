@@ -25,7 +25,7 @@ public class EndScreen extends Activity {
                 android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 	    p.setMargins(50,20,50,0);
 		TextView temp; 
-		LinearLayout scoreBoard = (LinearLayout) findViewById(R.id.end);
+		LinearLayout scoreBoard = (LinearLayout) findViewById(R.id.scores);
 		for (int i = 0; i < numPlayers; i++) {
 				temp = new TextView(this);
 			    temp.setText(results.players.get(i).username +"'s Score: "+ results.getPlayer(i).getPoints());

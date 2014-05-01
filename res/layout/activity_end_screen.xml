@@ -1,30 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/endScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:id="@+id/end">
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:id="@+id/scores">
+    </LinearLayout>
+    <LinearLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="10dp">
+        
+	    <Button
+	        android:id="@+id/playAgain"
+	        android:layout_width="150dp"
+	        android:layout_height="60dp"
+	        android:background="@drawable/button_menu_orange"
+	        android:gravity="center"
+	        android:onClick = "replay"
+	        android:textSize="24sp"
+	        android:textStyle="bold"
+	        android:layout_marginRight="5dp"
+	        android:text="@string/playAgain" />
+	
+	    <Button
+	        android:id="@+id/toMenu"
+	        android:layout_width="150dp"
+	        android:layout_height="60dp"
+	        android:textSize="24sp"
+	        android:background="@drawable/button_menu_blue"
+	        android:gravity="center"
+	        android:textStyle="bold"
+	        android:onClick = "mainMenu"
+	        android:text="@string/mainMenu" />
+	</LinearLayout>
 
-    <Button
-        android:id="@+id/playAgain"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/button_menu_orange"
-        android:gravity="center"
-        android:onClick = "replay"
-        android:text="@string/playAgain" />
-
-    <Button
-        android:id="@+id/toMenu"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/button_menu_blue"
-        android:gravity="center"
-        android:onClick = "mainMenu"
-        android:text="@string/mainMenu" />
-
-</LinearLayout>
+</RelativeLayout>
