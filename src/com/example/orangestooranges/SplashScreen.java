@@ -9,6 +9,8 @@ import android.os.Parcelable;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class SplashScreen extends Activity {
@@ -75,6 +77,31 @@ public class SplashScreen extends Activity {
 				startActivity(passPlay);
 			}
 		});
+		
+		//Name your players at the start
+		if(match.round==0){
+			AlertDialog.Builder alert = new AlertDialog.Builder(this);
+			alert.setTitle("Name Players");
+			LinearLayout layout = new LinearLayout(this);
+			layout.setOrientation(LinearLayout.VERTICAL);
+			//This section is breaking, needs to fixed to dynamically add player names
+			/*for(int i = 0; i<match.getNumPlayers();i++){
+				String textID = "t"+(i+1);
+				int resID = getResources().getIdentifier(textID, "id", getPackageName());
+				EditText playerText = (EditText)findViewById(resID);
+				playerText.setHint("Player "+(i+1));
+				layout.addView(playerText);
+			}*/
+			final EditText t1 = new EditText(this);
+			t1.setHint("1");
+			final EditText t2 = new EditText(this);
+			t2.setHint("2");
+			layout.addView(t1);
+			layout.addView(t2);
+			alert.setView(layout);
+			alert.show();
+			
+		}
 	}
 
 	@Override

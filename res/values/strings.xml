@@ -51,5 +51,6 @@
     <string name="title_activity_splash_screen">SplashScreen</string>
     <string name="app_id">1412006192384300</string>
     <string name="title_activity_end_game">EndGame</string>
+    <string name="namePlayer">Pick Player Names</string>
 
 </resources>

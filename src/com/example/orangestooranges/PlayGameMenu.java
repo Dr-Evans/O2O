@@ -6,6 +6,8 @@ import java.util.Stack;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
@@ -60,6 +62,7 @@ public class PlayGameMenu extends Activity {
 				Intent next = new Intent(PlayGameMenu.this, SplashScreen.class);
 				next.putExtra("matchData", (Parcelable) match);
 				startActivity(next);
+				
 
 			}
 		});
@@ -68,5 +71,6 @@ public class PlayGameMenu extends Activity {
 		Intent judge = new Intent(PlayGameMenu.this, JudgeScreen.class);
 		startActivity(judge);
 	}
+	
 
 }
