@@ -3,92 +3,104 @@
     package="com.example.orangestooranges"
     android:versionCode="1"
     android:versionName="1.0" >
+
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="18" />
+
     <uses-permission android:name="android.permission.INTERNET" />
-   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar" >
-        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_id"/>
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/app_id" />
+
         <activity
             android:name="com.example.orangestooranges.MainActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            
         </activity>
         <activity
             android:name="com.example.orangestooranges.LoginActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.example.orangestooranges.PlayGameMenu"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.example.orangestooranges.PregameWaiting"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.example.orangestooranges.PlayCard"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.example.orangestooranges.EndScreen"
-            android:screenOrientation="portrait"
-            android:label="@string/title_activity_end_screen" >
+            android:label="@string/title_activity_end_screen"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.example.orangestooranges.DisplayCards"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.example.orangestooranges.SettingActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/title_activity_setting" >
+            android:label="@string/title_activity_setting"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.example.orangestooranges.JudgeScreen"
-            android:screenOrientation="portrait"
-            android:label="@string/title_activity_judge_screen" >
+            android:label="@string/title_activity_judge_screen"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.example.orangestooranges.PassPlay"
-            android:screenOrientation="portrait"
-            android:label="@string/title_activity_pass_play" >
+            android:label="@string/title_activity_pass_play"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.example.orangestooranges.SplashScreen"
-            android:screenOrientation="portrait"
-            android:label="@string/title_activity_splash_screen" >
-        </activity>		
+            android:label="@string/title_activity_splash_screen"
+            android:screenOrientation="portrait" >
+        </activity>
         <activity
             android:name="com.example.orangestooranges.Instructions"
-            android:screenOrientation="portrait"
-            android:label="@string/Instructions" >
+            android:label="@string/Instructions"
+            android:screenOrientation="portrait" >
         </activity>
-            <activity android:name="com.facebook.LoginActivity"
-                android:theme="@android:style/Theme.Translucent.NoTitleBar"
-                android:label="@string/app_name" />
-      <activity
+        <activity
+            android:name="com.facebook.LoginActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
             android:name="com.example.orangestooranges.RegisterActivity"
-            android:screenOrientation="portrait"
             android:label="Register"
-             />
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.orangestooranges.EndGame"
+            android:label="@string/title_activity_end_game" >
+        </activity>
+        <activity
+            android:name="com.example.orangestooranges.GameStarter"
+            android:label="@string/title_activity_game_starter" >
+        </activity>
     </application>
-    
+
 </manifest>
