@@ -1,5 +1,8 @@
 package com.example.orangestooranges;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import library.MySQLDatabaseHandler;
 import library.UserFunctions;
 
@@ -105,13 +108,30 @@ public class LoginFragment extends Fragment {
 	    btnLinkToRegister.setOnClickListener(new View.OnClickListener() {
 
 		public void onClick(View view) {
-				Intent i = new Intent(getActivity(),
-						RegisterActivity.class);
+				Intent i = new Intent(getActivity(),RegisterActivity.class);
 				startActivity(i);
 			}
 		});
 
+	    Button btnGuest = (Button) view.findViewById(R.id.btnGuest);
+	    btnGuest.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				MySQLDatabaseHandler db = new MySQLDatabaseHandler(getActivity());
+				
+				Calendar cal = Calendar.getInstance();
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
+				//Add Guest user
+				db.addUser("Guest", "guest@guest.com", "1234567890", sdf.format(cal.getTime()));						
+				
+				Intent i = new Intent(getActivity(),MainActivity.class);
+				i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivity(i);
+			}
+		});
+	    
 	    return view;
 	}
 	
