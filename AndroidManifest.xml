@@ -100,7 +100,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.example.orangestooranges.PlayOnline"
-            android:label="@string/title_activity_play_online" >
+            android:label="@string/title_activity_play_online"
+            android:screenOrientation="portrait" >
         </activity>
     </application>
 

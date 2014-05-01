@@ -22,14 +22,19 @@ public class SplashScreen extends Activity {
 		Intent matchInfo = getIntent();
 		match = (Match) matchInfo.getParcelableExtra("matchData");
 		
+		
 		TextView gameInfo = (TextView)findViewById(R.id.splashTextView1);
 		String gi = "";
 		gi += "The game will go first to " + match.maxScore + " points.\n";
 		for(int i = 0; i < match.getNumPlayers(); i++)
 		{
-			gi += "Player " + (i+1) + " has " + match.players.get(i).getPoints() + " points.\n";
+			/*if(match.players.get(i).username.equals("null")){
+				gi += "Player " + (i+1) + " has " + match.players.get(i).getPoints() + " points.\n";
+			}
+			else{*/
+				gi+= match.players.get(i).username + " has " + match.players.get(i).getPoints() + " points.\n";
+			//}
 		}
-		gi += match.players.get(0).getPoints() == match.maxScore;
 		gameInfo.setText(gi);
 		
 		
@@ -49,16 +54,28 @@ public class SplashScreen extends Activity {
 				}
 				else
 				{
-					s = "Player " + (i+1) + "'s turn.";
-					break;
+					/*if(match.players.get(i).username.equals("null")){
+						s = "Player " + (i+1) + "'s turn.";
+						break;
+					}
+					else{*/
+						s=match.players.get(i).username +"'s turn";
+						break;
+					//}
 				}
 			}
 			
 		}
 		if(s.equals(""))
 		{
-			s = "Player " + (judgeIndex+1) + "'s turn. Time to judge!";
-			judgeTime = true;
+			/*if(match.players.get(judgeIndex+1).username.equals("null")){
+				s = "Player " + (judgeIndex+1) + "'s turn. Time to judge!";
+				judgeTime = true;
+			}
+			else{*/
+				s=match.players.get(judgeIndex).username +"'s turn. Time to judge!";
+				judgeTime=true;
+			//}
 		}
 		text.setText(s);
 		

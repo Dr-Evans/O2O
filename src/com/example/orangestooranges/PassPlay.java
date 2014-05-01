@@ -52,7 +52,7 @@ public class PassPlay extends Activity{// implements View.OnTouchListener{
 				currPlayer = match.players.get(i);
 				currPlayer.setCardOrangePlayed(null);
 				playerIndex = i;
-				s = "Player " + (i+1) + "'s turn.";
+				s = match.players.get(i).username+ "'s turn.";
 				break;
 			}
 		}

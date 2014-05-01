@@ -11,7 +11,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="33dp"
         android:gravity="center"
         android:text="@string/numPlayers"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -62,5 +62,6 @@
         android:textStyle="bold"
         android:textSize="24sp"
         android:text="@string/play" />
+
 
 </RelativeLayout>

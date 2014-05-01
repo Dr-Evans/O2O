@@ -133,6 +133,7 @@ public class Player implements Parcelable {
 		return username;
 	}
 	
+	
 	public ArrayList<CardOrange> getHand() {
 		return hand;
 	}

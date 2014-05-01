@@ -23,12 +23,13 @@ public class EndScreen extends Activity {
 		LayoutParams p = new LayoutParams(
                 android.view.ViewGroup.LayoutParams.MATCH_PARENT,
                 android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
-	    p.setMargins(20,20,20,0);
+	    p.setMargins(50,20,50,0);
 		TextView temp; 
 		LinearLayout scoreBoard = (LinearLayout) findViewById(R.id.end);
 		for (int i = 0; i < numPlayers; i++) {
 				temp = new TextView(this);
-			    temp.setText("Player " + (i+1) +"'s Score: "+ results.getPlayer(i).getPoints());
+			    temp.setText(results.players.get(i).username +"'s Score: "+ results.getPlayer(i).getPoints());
+			    //Set text view needs to be set to the username of the player in the future
 			    temp.setId(i);
 			    scoreBoard.addView(temp,p);
 		}
