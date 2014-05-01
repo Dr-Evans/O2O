@@ -48,8 +48,8 @@ public class RegisterActivity extends Activity {
 		// Register Button Click event
 		btnRegister.setOnClickListener(new View.OnClickListener() {			
 			public void onClick(View view) {
-				String name = inputFullName.getText().toString();
-				String email = inputEmail.getText().toString();
+				String name = inputFullName.getText().toString().trim();
+				String email = inputEmail.getText().toString().trim();
 				String password = inputPassword.getText().toString();
 				UserFunctions userFunction = new UserFunctions();
 				JSONObject json = userFunction.registerUser(name, email, password);

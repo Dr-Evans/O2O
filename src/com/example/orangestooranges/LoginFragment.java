@@ -62,7 +62,7 @@ public class LoginFragment extends Fragment {
 	    btnLogin.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View view) {
-				String email = inputEmail.getText().toString();
+				String email = inputEmail.getText().toString().trim();
 				String password = inputPassword.getText().toString();
 				UserFunctions userFunction = new UserFunctions();
 				Log.d("Button", "Login");
