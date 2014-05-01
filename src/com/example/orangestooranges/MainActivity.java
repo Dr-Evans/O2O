@@ -102,7 +102,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	    // to change screen with specific button remove Toast.makeText() and add startActivity()
 		switch (v.getId()) {
 	        case R.id.mainPlayButton: 
-	        	startActivity(new Intent(MainActivity.this, PlayGameMenu.class));
+	        	startActivity(new Intent(MainActivity.this, PlayOnline.class));
 	        	break;
 	        case R.id.mainSettingsButton:
 	        	startActivity(new Intent(MainActivity.this, SettingActivity.class));
