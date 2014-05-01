@@ -11,7 +11,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="33dp"
         android:gravity="center"
         android:text="@string/numPlayers"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -60,5 +60,6 @@
     	android:paddingLeft="50dp"
         android:background="@drawable/button_menu_orange"
         android:text="@string/playGame" />
+    
 
 </RelativeLayout>

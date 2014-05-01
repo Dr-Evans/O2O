@@ -20,6 +20,7 @@ public class Match implements Parcelable {
 	int winnerIndex;
 	Stack<CardBlue> blueStack = new Stack<CardBlue>();
 	Stack<CardOrange> orangeStack = new Stack<CardOrange>();
+	int gameStart = 0; //Used for name filling in 0 false 1 true
 
 	//constructors
 	Match() {
@@ -61,6 +62,7 @@ public class Match implements Parcelable {
 		winnerIndex = in.readInt();
 		in.readList(blueStack, getClass().getClassLoader());
 		in.readList(orangeStack, getClass().getClassLoader());
+		gameStart = in.readInt();
 	}
 	
 	//method invoked by parcelable
