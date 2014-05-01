@@ -11,14 +11,11 @@
                 android:right="10dp"
                 android:top="10dp"
                 android:bottom="10dp" />
-            <stroke 
-                android:width="1dp" 
-                android:color="#FFFFFF" />
         </shape>
         
 </item>
     <item>
-          <shape>
+          <shape >
             <solid
                 android:color="@color/lightOrange" />
            
@@ -29,9 +26,6 @@
                 android:right="10dp"
                 android:top="10dp"
                 android:bottom="10dp" />
-            <stroke 
-                android:width="1dp" 
-                android:color="#000000" />
         </shape>
 </item>
  

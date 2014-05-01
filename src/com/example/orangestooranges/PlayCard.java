@@ -1,21 +1,24 @@
 package com.example.orangestooranges;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Parcelable;
-import android.view.Menu;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-
 import java.util.Stack;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class PlayCard extends Activity {
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.os.Bundle;
+import android.os.Parcelable;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+public class PlayCard extends Activity{
 	
 	Client request = new Client();
 	DatabaseHandler db = new DatabaseHandler(this);
@@ -145,7 +148,7 @@ public class PlayCard extends Activity {
 		}
 		v.setEnabled(false);
 	}
-	
+    
 	@Override
 	public void onBackPressed() {
 		//cant press back button in play game

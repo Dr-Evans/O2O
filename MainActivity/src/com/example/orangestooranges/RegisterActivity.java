@@ -12,8 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import library.MySQLDatabaseHandler;
-import library.UserFunctions;
+import com.example.orangestooranges.library.LoginDatabaseHandler;
+import com.example.orangestooranges.library.UserFunctions;
 
 public class RegisterActivity extends Activity {
 	Button btnRegister;
@@ -48,8 +48,8 @@ public class RegisterActivity extends Activity {
 		// Register Button Click event
 		btnRegister.setOnClickListener(new View.OnClickListener() {			
 			public void onClick(View view) {
-				String name = inputFullName.getText().toString().trim();
-				String email = inputEmail.getText().toString().trim();
+				String name = inputFullName.getText().toString();
+				String email = inputEmail.getText().toString();
 				String password = inputPassword.getText().toString();
 				UserFunctions userFunction = new UserFunctions();
 				JSONObject json = userFunction.registerUser(name, email, password);
@@ -62,7 +62,7 @@ public class RegisterActivity extends Activity {
 						if(Integer.parseInt(res) == 1){
 							// user successfully registred
 							// Store user details in SQLite Database
-							MySQLDatabaseHandler db = new MySQLDatabaseHandler(getApplicationContext());
+							LoginDatabaseHandler db = new LoginDatabaseHandler(getApplicationContext());
 							JSONObject json_user = json.getJSONObject("user");
 							
 							// Clear all previous data in database

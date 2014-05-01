@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#3b3b3b" >
+    
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="center"
+	    android:gravity="center"
+	    android:orientation="vertical"
+	    >
+	
+	    <TextView
+	        android:id="@+id/mainTextView1"
+	        android:layout_width="fill_parent"
+	        android:layout_height="128dp"
+	        android:gravity="center"
+	        android:layout_marginBottom="50dp"
+	        android:text="@string/username"
+	        android:textAppearance="?android:attr/textAppearanceLarge" />
+	
+		<Button
+		    android:id="@+id/mainStatsButton"
+		    android:layout_width="130dp"
+		    android:layout_height="60dp"
+		    android:background="@drawable/button_menu_orange"
+		    android:gravity="center"
+		    android:layout_marginBottom="25dp"
+		    android:text="@string/stats"
+		    android:textStyle="bold" />
+		
+	    <LinearLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center"
+	        android:layout_weight="1"
+	        android:orientation="horizontal" 
+	        >
+	
+	        <Button
+	            android:id="@+id/mainPlayButton"
+	            android:layout_width="130dp"
+	            android:layout_height="match_parent"
+	            android:background="@drawable/button_menu_orange"
+	            android:gravity="center"
+	            android:text="@string/playGame"
+	            android:textStyle="bold" />
+	
+			<TextView
+	        	android:id="@+id/spacer1"
+	        	android:layout_width="20dp"
+	        	android:layout_height="match_parent" 
+	        	/>
+	
+	        <Button
+	            android:id="@+id/mainCreateButton"
+	            android:layout_width="130dp"
+	            android:layout_height="match_parent"
+	            android:background="@drawable/button_menu_orange"
+	            android:gravity="center"
+	            android:text="@string/createGame"
+	            android:textStyle="bold" />
+	
+	    </LinearLayout>
+	
+	    <TextView
+	        android:id="@+id/spacer2"
+	        android:layout_width="match_parent"
+	        android:layout_height="20dp"  
+	        />
+	
+	    <LinearLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center"
+	        android:layout_weight="1"
+	        android:orientation="horizontal" 
+	        >
+	
+	        <Button
+	            android:id="@+id/mainFriendsButton"
+	            android:layout_width="130dp"
+	            android:layout_height="match_parent"
+	            android:background="@drawable/button_menu_blue"
+	            android:gravity="center"
+	            android:text="@string/friendList"
+	            android:textStyle="bold" />
+	
+	        <TextView
+	        	android:id="@+id/spacer3"
+	        	android:layout_width="20dp"
+	        	android:layout_height="match_parent" 
+	        	/>
+	
+	        <Button
+	            android:id="@+id/mainSettingsButton"
+	            android:layout_width="130dp"
+	            android:layout_height="match_parent"
+	            android:background="@drawable/button_menu_blue"
+	            android:gravity="center"
+	            android:text="@string/accountSettings"
+	            android:textStyle="bold" />
+	
+	    </LinearLayout>
+	    
+	    <Button 
+	        android:id="@+id/logoutButton"
+	        android:layout_width="130dp"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/button_menu_blue"
+	        android:gravity="center"
+	        android:text="@string/logout"
+	        android:textStyle="bold" />
+	</LinearLayout>
+</ScrollView>

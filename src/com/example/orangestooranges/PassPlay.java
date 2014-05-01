@@ -3,6 +3,8 @@ package com.example.orangestooranges;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import android.annotation.SuppressLint;
+import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -11,12 +13,14 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class PassPlay extends Activity {
+public class PassPlay extends Activity{// implements View.OnTouchListener{
 	
 	Timer t = new Timer();
 	int seconds = 25;
@@ -25,6 +29,8 @@ public class PassPlay extends Activity {
 	Player currPlayer;
 	int playerIndex;
 	boolean timerPause = false;
+    //private float oldXvalue;
+    //private float oldYvalue;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -118,6 +124,30 @@ public class PassPlay extends Activity {
         		});
         	}
         }, 0, 1000);
+		
+		//Allow cards to be dragged
+		/*
+		Button card1 = (Button) findViewById(R.id.card1);
+		card1.setOnTouchListener(this);
+		
+		Button card2 = (Button) findViewById(R.id.card2);
+		card2.setOnTouchListener(this);
+		
+		Button card3 = (Button) findViewById(R.id.card3);
+		card3.setOnTouchListener(this);
+		
+		Button card4 = (Button) findViewById(R.id.card4);
+		card4.setOnTouchListener(this);
+		
+		Button card5 = (Button) findViewById(R.id.card5);
+		card5.setOnTouchListener(this);
+		
+		Button card6 = (Button) findViewById(R.id.card6);
+		card6.setOnTouchListener(this);
+		
+		Button card7 = (Button) findViewById(R.id.card7);
+		card7.setOnTouchListener(this);
+		*/
 	}
 
 	@Override
@@ -157,6 +187,25 @@ public class PassPlay extends Activity {
 		}
 		v.setEnabled(false);
 	}
+	/*
+    @Override
+    public boolean onTouch(View v, MotionEvent me) {
+        if (me.getAction() == MotionEvent.ACTION_DOWN) {
+            oldXvalue = me.getX();
+            oldYvalue = me.getY();
+            Log.i("Pass Play Button", "Action Down " + oldXvalue + "," + oldYvalue);
+        } 
+        else if (me.getAction() == MotionEvent.ACTION_MOVE) {
+            //RelativeLayout rl = (RelativeLayout) findViewById(R.layout.activity_pass_play);
+        	LayoutParams params = new LayoutParams(v.getWidth(), v.getHeight(),(int)(me.getRawX() - (v.getWidth() / 2)));
+            //params.leftMargin = (int) (me.getRawX() - (v.getWidth() / 2));
+            //params.topMargin = (int) (me.getRawY() - (v.getHeight()));
+            //v.getHeight(), (int) (me.getRawX() - (v.getWidth() / 2)), (int) (me.getRawY() - (v.getHeight())));
+            v.setLayoutParams(params);
+        }
+        return true;
+    }
+    */
 	
 	@Override
 	public void onPause() {

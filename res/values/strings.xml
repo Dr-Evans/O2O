@@ -5,8 +5,9 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello\nWorld!</string>
     <string name="stats">Stats</string>
-    <string name="playGame">Play\nGame</string>
-    <string name="passPlay">Pass\n\'n\' Play</string>
+    <string name="playGame">Play Online</string>
+    <string name="play">Play</string>
+    <string name="passPlay">Pass \'n\' Play</string>
     <string name="friendList">Friend\nList</string>
     <string name="accountSettings">Account\nSettings</string>
     <string name="button5">Login</string>
@@ -51,5 +52,6 @@
     <string name="title_activity_splash_screen">SplashScreen</string>
     <string name="app_id">1412006192384300</string>
     <string name="title_activity_end_game">EndGame</string>
+    <string name="title_activity_play_online">PlayOnline</string>
 
 </resources>

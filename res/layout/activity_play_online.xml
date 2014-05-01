@@ -6,31 +6,31 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".SplashScreen" >
+    tools:context=".PlayOnline" >
 
     <TextView
-        android:id="@+id/splashTextView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <Button
-        android:id="@+id/splashButton"
+        android:id="@+id/sorry_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_menu_orange"
-        android:textStyle="bold"
-        android:textSize="24sp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/passPlay" />
-
-    <TextView
-        android:id="@+id/splashTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/splashButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="71dp"
-        android:text="TextView" />
+        android:text="Sorry, this feature is still in development!" 
+        android:layout_centerInParent="true"/>
     
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="O2O Studios" 
+        android:textColor="@color/orange"
+        android:layout_below="@+id/sorry_text"
+        android:paddingTop="10dp"
+        android:textSize="24sp"
+        android:layout_centerHorizontal="true"/>
+    
+    <ImageView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:layout_above="@+id/sorry_text"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/pot"/>
+
 </RelativeLayout>
