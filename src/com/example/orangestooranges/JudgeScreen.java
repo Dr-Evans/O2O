@@ -157,6 +157,7 @@ public class JudgeScreen extends Activity implements OnClickListener {
 		Button b = (Button) findViewById(id);
 		b.setBackgroundResource(R.drawable.button_playcard_selected);
 		match.players.get(id).updatePoints(match.roundBlue);
+		seconds = 5;
 	}
 	
 	@Override

@@ -41,7 +41,7 @@
 		</LinearLayout>
     </LinearLayout>
     
-    <LinearLayout
+   <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:gravity="center"
@@ -123,14 +123,18 @@
 		            android:layout_marginRight="10dp"
 		            android:textStyle="bold" 
 		            android:singleLine="true"/>
+               
+                <com.facebook.widget.LoginButton
+			        android:id="@+id/authButton"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentBottom="true"
+		            android:layout_alignParentRight="true"
+		            android:layout_marginRight="10dp"
+		            android:layout_marginBottom="15dp"/>
         </RelativeLayout>
         
-         <com.facebook.widget.LoginButton
-	        android:id="@+id/authButton"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="center_horizontal"
-	        android:layout_marginBottom="15dp"/>
+
 
     </LinearLayout>
 </LinearLayout>
