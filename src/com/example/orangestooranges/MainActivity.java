@@ -108,7 +108,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	        	startActivity(new Intent(MainActivity.this, SettingActivity.class));
 	        	break;
 	        case R.id.mainFriendsButton:
-	        	startActivity(new Intent(MainActivity.this, FriendsList.class));
+	        	startActivity(new Intent(MainActivity.this, PlayOnline.class));
 	            break;
 	        case R.id.mainPassPlayButton:
 	        	startActivity(new Intent(MainActivity.this, PlayGameMenu.class));
