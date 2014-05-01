@@ -93,7 +93,7 @@ public class PlayGameMenu extends Activity {
 							startActivity(next);
 						}
 					});
-					alert.setNegativeButton("Defaults", new DialogInterface.OnClickListener(){
+					/*alert.setNegativeButton("Defaults", new DialogInterface.OnClickListener(){
 						public void onClick(DialogInterface dialog, int which){
 							//exit and start next
 							for(int k =0; k<match.getNumPlayers();k++){
@@ -103,7 +103,7 @@ public class PlayGameMenu extends Activity {
 							next.putExtra("matchData", (Parcelable) match);
 							startActivity(next);
 						}
-					});
+					});*/
 					alert.setIcon(android.R.drawable.ic_dialog_alert);
 					alert.setCancelable(false);
 					alert.show();

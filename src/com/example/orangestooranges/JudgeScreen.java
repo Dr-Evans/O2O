@@ -1,5 +1,7 @@
 package com.example.orangestooranges;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -42,7 +44,8 @@ public class JudgeScreen extends Activity implements OnClickListener {
 	                android.view.ViewGroup.LayoutParams.MATCH_PARENT,
 	                android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		    p.setMargins(0,20,0,0);
-			Button temp; 
+			Button temp;
+			ArrayList<Button> butts = new ArrayList<Button>();
 			LinearLayout cardsLayout = (LinearLayout) findViewById(R.id.judge);
 			for (int i = 0; i < numCards; i++) {
 				if(!match.players.get(i).getJudge()) {
@@ -50,9 +53,14 @@ public class JudgeScreen extends Activity implements OnClickListener {
 				    temp.setBackgroundResource(R.drawable.button_menu_orange);
 				    temp.setOnClickListener(this);
 				    temp.setText(match.getPlayer(i).getOrangePlayed().getCtopic());
-				    temp.setId(i);				    
-				    cardsLayout.addView(temp,p);
+				    temp.setId(i);
+				    butts.add(temp);
+				    //cardsLayout.addView(temp,p);
 				}
+			}
+			Collections.shuffle(butts);
+			for(int j = 0; j<butts.size();j++){
+				cardsLayout.addView(butts.get(j),p);
 			}
 		/*
 		 * This code should not be needed... setOrangePlayed should already do this, but I'll leave it in case
